@@ -15,24 +15,28 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject MoveJoystick;
     public GameObject ShootJoystick;
     public GameObject BloodBar;
+    public GameObject MiddleBloodBar;
     public GameObject ShootAim;    
 
     [Header("玩家狀態")]
     public bool CanMove;
     public bool CanShoot;
     public float NowHp;
+    public float FollowHp;
     public bool CanTreat;
 
     [Header("參數設定")]
     public float MoveSpeed;
     public string BulletKind;
     public float MaxHp;
+    public float HpFollowSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         CanShoot = false;
         NowHp = MaxHp;
+        FollowHp = MaxHp;
         CanTreat = true;
     }
 
@@ -126,6 +130,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void BloodBarCheck()
     {
         GameObject[] bloodBars = GameObject.FindGameObjectsWithTag("Blood Bar");
+        GameObject[] middleBars = GameObject.FindGameObjectsWithTag("Blood Bar Middle");
         foreach (GameObject bloodBar in bloodBars)
         {
             if (bloodBar.GetComponent<PhotonView>().IsMine)
@@ -136,6 +141,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 Destroy(bloodBar);
 
+            }
+        }
+        foreach(GameObject middleBar in middleBars)
+        {
+            if (middleBar.GetComponent<PhotonView>().IsMine)
+            {
+                MiddleBloodBar = middleBar;
+            }
+            else
+            {
+                Destroy(middleBar);
             }
         }
     }
@@ -227,6 +243,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void BloodBarControl()
     {
         BloodBar.transform.localPosition = new Vector3(-800 + (NowHp / MaxHp) * 800, 0, 0);
+        MiddleBloodBar.transform.localPosition = new Vector3(-800 + (FollowHp / MaxHp) * 800, 0, 0);
+
+        if (FollowHp > NowHp)
+        {
+            FollowHp -= HpFollowSpeed * Time.deltaTime;
+        }
     }
 
     void OnTriggerEnter(Collider other)

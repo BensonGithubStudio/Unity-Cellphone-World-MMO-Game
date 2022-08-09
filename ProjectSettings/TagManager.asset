@@ -10,6 +10,7 @@ TagManager:
   - Shoot Aim
   - Bullet
   - Blood Bar
+  - Blood Bar Middle
   layers:
   - Default
   - TransparentFX
