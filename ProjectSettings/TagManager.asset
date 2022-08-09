@@ -7,6 +7,8 @@ TagManager:
   - Game UI
   - Move Joystick
   - Shoot Joystick
+  - Shoot Aim
+  - Bullet
   layers:
   - Default
   - TransparentFX

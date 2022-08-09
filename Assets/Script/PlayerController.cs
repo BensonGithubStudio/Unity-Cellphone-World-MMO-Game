@@ -14,17 +14,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject GameUI;
     public GameObject MoveJoystick;
     public GameObject ShootJoystick;
+    public GameObject ShootAim;    
 
     [Header("玩家狀態")]
     public bool CanMove;
+    public bool CanShoot;
 
     [Header("參數設定")]
     public float MoveSpeed;
+    public string BulletKind;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        CanShoot = false;
     }
 
     // Update is called once per frame
@@ -35,7 +38,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
             CameraCheck();
             GameUICheck();
             JoystickCheck();
+            ShootAimCheck();
             PlayerRotate();
+            ShootRotate();
+            ShootControl();
         }
     }
 
@@ -109,6 +115,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
         }
     }
 
+    void ShootAimCheck()
+    {
+        GameObject[] shoots = GameObject.FindGameObjectsWithTag("Shoot Aim");
+        foreach (GameObject shoot in shoots)
+        {
+            if (shoot.GetComponent<PhotonView>().IsMine)
+            {
+                ShootAim = shoot;
+            }
+            else
+            {
+                Destroy(shoot);
+            }
+        }
+        ShootAim.transform.position = Player.transform.position;
+    }
+
     void PlayerRotate()
     {
         if(MoveJoystick.GetComponent<JoyStickControl>().InputDirection.x != 0|| MoveJoystick.GetComponent<JoyStickControl>().InputDirection.y != 0)
@@ -138,6 +161,53 @@ public class PlayerController : MonoBehaviourPunCallbacks
             if (PlayerRigidBody.velocity.magnitude < 5)
             {
                 PlayerRigidBody.AddRelativeForce(0, 0, MoveSpeed);
+            }
+        }
+    }
+
+    void ShootRotate()
+    {
+        if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x > 0.5f || ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x < -0.5f || ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y > 0.5f || ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y < -0.5f)
+        {
+            ShootAim.SetActive(true);
+            CanShoot = true;
+            if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y > 0)
+            {
+                ShootAim.transform.localEulerAngles = new Vector3(0, 90 * ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x, 0);
+            }
+            if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y < 0)
+            {
+                ShootAim.transform.localEulerAngles = new Vector3(0, 180 - (90 * ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x), 0);
+            }
+        }
+        else
+        {
+            ShootAim.SetActive(false);
+        }
+    }
+
+    void ShootControl()
+    {
+        if (CanShoot)
+        {
+            if(ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x == 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y == 0)
+            {
+                PhotonNetwork.Instantiate(BulletKind, Player.transform.position, Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
+                CanShoot = false;
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (pv.IsMine)
+        {
+            if (other.gameObject.tag == "Bullet")
+            {
+                if (!other.gameObject.GetComponent<PhotonView>().IsMine)
+                {
+                    Debug.Log("Hurt");
+                }
             }
         }
     }

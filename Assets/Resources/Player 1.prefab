@@ -124,8 +124,11 @@ MonoBehaviour:
   GameUI: {fileID: 0}
   MoveJoystick: {fileID: 0}
   ShootJoystick: {fileID: 0}
+  ShootAim: {fileID: 0}
   CanMove: 0
+  CanShoot: 0
   MoveSpeed: 20
+  BulletKind: Bullet 1
 --- !u!54 &54269779044568496
 Rigidbody:
   m_ObjectHideFlags: 0
