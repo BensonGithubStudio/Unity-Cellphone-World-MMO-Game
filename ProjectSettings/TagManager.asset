@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Blood Bar
   - Blood Bar Middle
+  - Leave Button
   layers:
   - Default
   - TransparentFX

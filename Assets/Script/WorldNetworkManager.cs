@@ -4,7 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
-public class WorldNetworkManager : MonoBehaviour
+public class WorldNetworkManager : MonoBehaviourPunCallbacks
 {
     public int StartPositionCount;
     public GameObject[] StartPosition;
@@ -26,9 +26,8 @@ public class WorldNetworkManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnLeftRoom()
     {
-        
+        SceneManager.LoadScene("Start Scene");
     }
 }

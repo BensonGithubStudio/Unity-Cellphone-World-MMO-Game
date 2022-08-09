@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -16,7 +17,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject ShootJoystick;
     public GameObject BloodBar;
     public GameObject MiddleBloodBar;
-    public GameObject ShootAim;    
+    public GameObject ShootAim;
+    public GameObject LeaveButton;
 
     [Header("玩家狀態")]
     public bool CanMove;
@@ -24,12 +26,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float NowHp;
     public float FollowHp;
     public bool CanTreat;
+    public bool IsAlive;
 
     [Header("參數設定")]
     public float MoveSpeed;
     public string BulletKind;
     public float MaxHp;
     public float HpFollowSpeed;
+    public float CamMoveSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -38,6 +42,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         NowHp = MaxHp;
         FollowHp = MaxHp;
         CanTreat = true;
+        IsAlive = true;
     }
 
     // Update is called once per frame
@@ -45,14 +50,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         if (pv.IsMine)
         {
-            CameraCheck();
-            GameUICheck();
-            JoystickCheck();
-            BloodBarCheck();
-            ShootAimCheck();
-            PlayerRotate();
-            ShootRotate();
-            ShootControl();
+            if (IsAlive)
+            {
+                CameraCheck();
+                GameUICheck();
+                JoystickCheck();
+                BloodBarCheck();
+                ShootAimCheck();
+                LeaveButtonCheck();
+                PlayerRotate();
+                ShootRotate();
+                ShootControl();
+            }
             BloodBarControl();
         }
     }
@@ -173,6 +182,25 @@ public class PlayerController : MonoBehaviourPunCallbacks
         ShootAim.transform.position = Player.transform.position;
     }
 
+    void LeaveButtonCheck()
+    {
+        GameObject[] buttons = GameObject.FindGameObjectsWithTag("Leave Button");
+        foreach (GameObject button in buttons)
+        {
+            if (button.GetComponent<PhotonView>().IsMine)
+            {
+                LeaveButton = button;
+                LeaveButton.GetComponent<Button>().onClick.AddListener(delegate (){ OnClickLeaveGame(); });
+            }
+            else
+            {
+                Destroy(button);
+            }
+        }
+
+        LeaveButton.SetActive(false);
+    }
+
     void PlayerRotate()
     {
         if(MoveJoystick.GetComponent<JoyStickControl>().InputDirection.x != 0|| MoveJoystick.GetComponent<JoyStickControl>().InputDirection.y != 0)
@@ -249,6 +277,32 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             FollowHp -= HpFollowSpeed * Time.deltaTime;
         }
+
+        if (NowHp <= 0)
+        {
+            IsAlive = false;
+            LeaveButton.SetActive(true);
+            if (Cam.transform.position.y <= 11.5f)
+            {
+                Cam.transform.Translate(0, 0, -CamMoveSpeed * Time.deltaTime);
+            }
+        }else if (NowHp <= MaxHp / 4)
+        {
+            BloodBar.GetComponent<Animator>().SetBool("Full", false);
+            BloodBar.GetComponent<Animator>().SetBool("Middle", false);
+            BloodBar.GetComponent<Animator>().SetBool("Danger", true);
+        }else if (NowHp <= MaxHp / 2)
+        {
+            BloodBar.GetComponent<Animator>().SetBool("Full", false);
+            BloodBar.GetComponent<Animator>().SetBool("Middle", true);
+            BloodBar.GetComponent<Animator>().SetBool("Danger", false);
+        }
+        else
+        {
+            BloodBar.GetComponent<Animator>().SetBool("Full", true);
+            BloodBar.GetComponent<Animator>().SetBool("Middle", false);
+            BloodBar.GetComponent<Animator>().SetBool("Danger", false);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -263,5 +317,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 }
             }
         }
+    }
+
+    public void OnClickLeaveGame()
+    {
+        PhotonNetwork.LeaveRoom();
     }
 }
