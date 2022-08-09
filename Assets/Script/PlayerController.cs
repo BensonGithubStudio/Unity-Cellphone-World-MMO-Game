@@ -14,20 +14,26 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject GameUI;
     public GameObject MoveJoystick;
     public GameObject ShootJoystick;
+    public GameObject BloodBar;
     public GameObject ShootAim;    
 
     [Header("玩家狀態")]
     public bool CanMove;
     public bool CanShoot;
+    public float NowHp;
+    public bool CanTreat;
 
     [Header("參數設定")]
     public float MoveSpeed;
     public string BulletKind;
+    public float MaxHp;
 
     // Start is called before the first frame update
     void Start()
     {
         CanShoot = false;
+        NowHp = MaxHp;
+        CanTreat = true;
     }
 
     // Update is called once per frame
@@ -38,10 +44,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
             CameraCheck();
             GameUICheck();
             JoystickCheck();
+            BloodBarCheck();
             ShootAimCheck();
             PlayerRotate();
             ShootRotate();
             ShootControl();
+            BloodBarControl();
         }
     }
 
@@ -111,6 +119,23 @@ public class PlayerController : MonoBehaviourPunCallbacks
             else
             {
                 Destroy(shoot);
+            }
+        }
+    }
+
+    void BloodBarCheck()
+    {
+        GameObject[] bloodBars = GameObject.FindGameObjectsWithTag("Blood Bar");
+        foreach (GameObject bloodBar in bloodBars)
+        {
+            if (bloodBar.GetComponent<PhotonView>().IsMine)
+            {
+                BloodBar = bloodBar;
+            }
+            else
+            {
+                Destroy(bloodBar);
+
             }
         }
     }
@@ -192,10 +217,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if(ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x == 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y == 0)
             {
+                Player.transform.eulerAngles = new Vector3(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z);
                 PhotonNetwork.Instantiate(BulletKind, Player.transform.position, Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
                 CanShoot = false;
             }
         }
+    }
+
+    void BloodBarControl()
+    {
+        BloodBar.transform.localPosition = new Vector3(-800 + (NowHp / MaxHp) * 800, 0, 0);
     }
 
     void OnTriggerEnter(Collider other)
@@ -206,7 +237,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 if (!other.gameObject.GetComponent<PhotonView>().IsMine)
                 {
-                    Debug.Log("Hurt");
+                    NowHp -= other.gameObject.GetComponent<BulletControl>().BulletStrong;
                 }
             }
         }

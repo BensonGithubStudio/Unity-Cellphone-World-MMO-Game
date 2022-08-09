@@ -9,6 +9,7 @@ TagManager:
   - Shoot Joystick
   - Shoot Aim
   - Bullet
+  - Blood Bar
   layers:
   - Default
   - TransparentFX
