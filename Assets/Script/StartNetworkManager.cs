@@ -26,6 +26,10 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
             ConnectingUI.SetBool("Is Connect", false);
             PhotonNetwork.ConnectUsingSettings();
         }
+        else
+        {
+            LoadingText.text = "0%";
+        }
     }
 
     public override void OnConnectedToMaster()

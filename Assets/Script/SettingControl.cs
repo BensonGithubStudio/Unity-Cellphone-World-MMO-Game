@@ -10,6 +10,8 @@ public class SettingControl : MonoBehaviour
     public GameObject QualitySettingUI;
     public GameObject SoundAndMusicSettingUI;
     public GameObject GameDataUI;
+    public GameObject PlayerInformationUI;
+    public GameObject PreferUI;
 
     void Start()
     {
@@ -18,6 +20,8 @@ public class SettingControl : MonoBehaviour
         QualitySettingUI.SetActive(false);
         SoundAndMusicSettingUI.SetActive(false);
         GameDataUI.SetActive(false);
+        PlayerInformationUI.SetActive(false);
+        PreferUI.SetActive(false);
     }
 
     public void OnClickLeaveGame()
@@ -45,6 +49,8 @@ public class SettingControl : MonoBehaviour
         {
             SoundAndMusicSettingUI.SetActive(false);
             GameDataUI.SetActive(false);
+            PlayerInformationUI.SetActive(false);
+            PreferUI.SetActive(false);
             QualitySettingUI.SetActive(true);
         }
     }
@@ -84,6 +90,8 @@ public class SettingControl : MonoBehaviour
         {
             QualitySettingUI.SetActive(false);
             GameDataUI.SetActive(false);
+            PlayerInformationUI.SetActive(false);
+            PreferUI.SetActive(false);
             SoundAndMusicSettingUI.SetActive(true);
         }
     }
@@ -98,7 +106,41 @@ public class SettingControl : MonoBehaviour
         {
             QualitySettingUI.SetActive(false);
             SoundAndMusicSettingUI.SetActive(false);
+            PlayerInformationUI.SetActive(false);
+            PreferUI.SetActive(false);
             GameDataUI.SetActive(true);
+        }
+    }
+
+    public void OnClickPlayerInformation()
+    {
+        if (PlayerInformationUI.activeSelf)
+        {
+            PlayerInformationUI.SetActive(false);
+        }
+        else
+        {
+            QualitySettingUI.SetActive(false);
+            SoundAndMusicSettingUI.SetActive(false);
+            GameDataUI.SetActive(false);
+            PreferUI.SetActive(false);
+            PlayerInformationUI.SetActive(true);
+        }
+    }
+
+    public void OnClickPrefer()
+    {
+        if (PreferUI.activeSelf)
+        {
+            PreferUI.SetActive(false);
+        }
+        else
+        {
+            QualitySettingUI.SetActive(false);
+            SoundAndMusicSettingUI.SetActive(false);
+            GameDataUI.SetActive(false);
+            PlayerInformationUI.SetActive(false);
+            PreferUI.SetActive(true);
         }
     }
 }
