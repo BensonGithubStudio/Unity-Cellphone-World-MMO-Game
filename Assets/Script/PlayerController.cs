@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float MaxHp;
     public float HpFollowSpeed;
     public float CamMoveSpeed;
+    public float treatTime;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         FollowHp = MaxHp;
         CanTreat = true;
         IsAlive = true;
+        treatTime = 3;
     }
 
     // Update is called once per frame
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 PlayerRotate();
                 ShootRotate();
                 ShootControl();
+                BloodTreat();
             }
             BloodBarControl();
         }
@@ -313,9 +316,48 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 if (!other.gameObject.GetComponent<PhotonView>().IsMine)
                 {
+                    treatTime = 3;
+                    CancelInvoke("Treat");
+                    CanTreat = true;
                     NowHp -= other.gameObject.GetComponent<BulletControl>().BulletStrong;
                 }
             }
+        }
+    }
+
+    void BloodTreat()
+    {
+        treatTime -= Time.deltaTime;
+
+        if (treatTime <= 0)
+        {
+            if (NowHp < MaxHp)
+            {
+                if (CanTreat)
+                {
+                    InvokeRepeating("Treat", 0, 1);
+                    CanTreat = false;
+                }
+            }
+            else
+            {
+                CancelInvoke("Treat");
+                CanTreat = true;
+            }
+        }
+    }
+
+    void Treat()
+    {
+        if (MaxHp - NowHp >= MaxHp / 6)
+        {
+            NowHp += MaxHp / 6;
+            FollowHp = NowHp;
+        }
+        else
+        {
+            NowHp += (MaxHp - NowHp);
+            FollowHp = NowHp;
         }
     }
 

@@ -139,6 +139,7 @@ MonoBehaviour:
   MaxHp: 100
   HpFollowSpeed: 15
   CamMoveSpeed: 3
+  treatTime: 0
 --- !u!54 &54269779044568496
 Rigidbody:
   m_ObjectHideFlags: 0
