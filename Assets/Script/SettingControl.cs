@@ -6,14 +6,19 @@ using Photon.Pun;
 
 public class SettingControl : MonoBehaviour
 {
+    //畫質設定36~71
+    //遊戲音效設定
+
     public GameObject SettingAllUI;
     public GameObject QualitySettingUI;
+    public GameObject SoundAndMusicSettingUI;
 
     void Start()
     {
         SettingAllUI.SetActive(false);
 
         QualitySettingUI.SetActive(false);
+        SoundAndMusicSettingUI.SetActive(false);
     }
 
     public void OnClickLeaveGame()
@@ -39,6 +44,7 @@ public class SettingControl : MonoBehaviour
         }
         else
         {
+            SoundAndMusicSettingUI.SetActive(false);
             QualitySettingUI.SetActive(true);
         }
     }
@@ -66,5 +72,18 @@ public class SettingControl : MonoBehaviour
     public void OnClickUltraQuality()
     {
         QualitySettings.SetQualityLevel(5);
+    }
+
+    public void OnClickSoundAndMusicSetting()
+    {
+        if (SoundAndMusicSettingUI.activeSelf)
+        {
+            SoundAndMusicSettingUI.SetActive(false);
+        }
+        else
+        {
+            QualitySettingUI.SetActive(false);
+            SoundAndMusicSettingUI.SetActive(true);
+        }
     }
 }
