@@ -1445,6 +1445,7 @@ MonoBehaviour:
   WaitingInGameUI: {fileID: 840104011}
   LoadingBar: {fileID: 1199910502}
   LoadingText: {fileID: 561489358}
+  StartButton: {fileID: 179916356}
 --- !u!4 &2086353489
 Transform:
   m_ObjectHideFlags: 0

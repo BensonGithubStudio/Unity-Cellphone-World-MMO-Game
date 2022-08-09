@@ -11,10 +11,12 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
     public Animator WaitingInGameUI;
     public GameObject LoadingBar;
     public Text LoadingText;
+    public Button StartButton;
 
     // Start is called before the first frame update
     void Start()
     {
+        StartButton.interactable = false;
         ConnectingUI.gameObject.SetActive(true);
         WaitingInGameUI.gameObject.SetActive(false);
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -24,14 +26,11 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
             ConnectingUI.SetBool("Is Connect", false);
             PhotonNetwork.ConnectUsingSettings();
         }
-        else
-        {
-            DestroyConnectUI();
-        }
     }
 
     public override void OnConnectedToMaster()
     {
+        StartButton.interactable = true;
         LoadingText.text = "80%";
         LoadingBar.transform.localPosition = new Vector3(-80, 0, 0);
         Invoke("LoadingMiddle", 0.1f);
