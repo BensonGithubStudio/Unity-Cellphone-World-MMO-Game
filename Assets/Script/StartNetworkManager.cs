@@ -9,6 +9,8 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 {
     public Animator ConnectingUI;
     public Animator WaitingInGameUI;
+    public GameObject LoadingBar;
+    public Text LoadingText;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,20 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        
+        LoadingText.text = "80%";
+        LoadingBar.transform.localPosition = new Vector3(-80, 0, 0);
+        Invoke("LoadingMiddle", 0.1f);
+    }
+
+    void LoadingMiddle()
+    {
+        LoadingText.text = "100%";
+        LoadingBar.transform.localPosition = new Vector3(0, 0, 0);
+        Invoke("LoadingSuccess", 0.5f);
+    }
+
+    void LoadingSuccess()
+    {
         ConnectingUI.SetBool("Is Connect", true);
         Invoke("DestroyConnectUI", 1.2f);
     }

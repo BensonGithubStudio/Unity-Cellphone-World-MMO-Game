@@ -349,15 +349,22 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     void Treat()
     {
-        if (MaxHp - NowHp >= MaxHp / 6)
+        if (IsAlive)
         {
-            NowHp += MaxHp / 6;
-            FollowHp = NowHp;
+            if (MaxHp - NowHp >= MaxHp / 6)
+            {
+                NowHp += MaxHp / 6;
+                FollowHp = NowHp;
+            }
+            else
+            {
+                NowHp += (MaxHp - NowHp);
+                FollowHp = NowHp;
+            }
         }
         else
         {
-            NowHp += (MaxHp - NowHp);
-            FollowHp = NowHp;
+            CancelInvoke("Treat");
         }
     }
 
