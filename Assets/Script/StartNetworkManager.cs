@@ -28,7 +28,7 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            LoadingText.text = "0%";
+            LoadingText.text = "20%";
         }
     }
 
