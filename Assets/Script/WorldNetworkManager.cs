@@ -21,6 +21,7 @@ public class WorldNetworkManager : MonoBehaviour
             int count = Random.Range(0, StartPositionCount);
             PhotonNetwork.Instantiate("Player 1", StartPosition[count].transform.position, Quaternion.identity);
             PhotonNetwork.Instantiate("Main Camera", StartPosition[count].transform.position, Quaternion.Euler(90, 0, 0));
+            PhotonNetwork.Instantiate("Game UI", StartPosition[count].transform.position, Quaternion.identity);
         }
     }
 

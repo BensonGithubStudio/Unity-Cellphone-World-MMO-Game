@@ -15,6 +15,7 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
     {
         ConnectingUI.gameObject.SetActive(true);
         WaitingInGameUI.gameObject.SetActive(false);
+        PhotonNetwork.AutomaticallySyncScene = true;
 
         if (!PhotonNetwork.IsConnected)
         {
@@ -29,6 +30,7 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        
         ConnectingUI.SetBool("Is Connect", true);
         Invoke("DestroyConnectUI", 1.2f);
     }
@@ -52,7 +54,10 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         WaitingInGameUI.SetBool("Is Ready", true);
-        Invoke("GoInGame", 0.5f);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Invoke("GoInGame", 0.5f);
+        }
     }
 
     void GoInGame()
