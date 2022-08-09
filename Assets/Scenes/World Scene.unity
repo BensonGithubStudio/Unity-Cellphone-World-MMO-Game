@@ -1071,6 +1071,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213841276}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &222010833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222010834}
+  m_Layer: 0
+  m_Name: Position 6
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &222010834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222010833}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.91, y: 0, z: -5.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 630874288}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &266388469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1231,13 +1261,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f40a0d6361334c444b4992e1d70331f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPositionCount: 5
+  StartPositionCount: 6
   StartPosition:
   - {fileID: 1267190802}
   - {fileID: 1606881247}
   - {fileID: 96386404}
   - {fileID: 715809455}
   - {fileID: 1666230035}
+  - {fileID: 222010833}
 --- !u!4 &306427904
 Transform:
   m_ObjectHideFlags: 0
@@ -2361,6 +2392,7 @@ Transform:
   - {fileID: 96386405}
   - {fileID: 715809456}
   - {fileID: 1666230036}
+  - {fileID: 222010834}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
