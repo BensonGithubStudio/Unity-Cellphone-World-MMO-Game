@@ -255,6 +255,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         else
         {
             ShootAim.SetActive(false);
+            CanShoot = false;
         }
     }
 

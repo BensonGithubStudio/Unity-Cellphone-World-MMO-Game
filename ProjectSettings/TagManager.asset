@@ -12,6 +12,7 @@ TagManager:
   - Blood Bar
   - Blood Bar Middle
   - Leave Button
+  - Player Body
   layers:
   - Default
   - TransparentFX

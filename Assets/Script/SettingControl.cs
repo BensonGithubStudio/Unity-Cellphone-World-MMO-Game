@@ -112,6 +112,12 @@ public class SettingControl : MonoBehaviour
         }
     }
 
+    public void OnClickDeletePlayerLevelData()
+    {
+        PlayerPrefs.DeleteKey("Name");
+        PlayerPrefs.DeleteKey("Level");
+    }
+
     public void OnClickPlayerInformation()
     {
         if (PlayerInformationUI.activeSelf)
