@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class StartSceneButton : MonoBehaviour
 {
+    public float ClickTime;
+    public float ClickMaxTime;
+
     public GameObject ChooseCharacterImage;
     public GameObject[] CharacterKind;
 
@@ -11,11 +14,30 @@ public class StartSceneButton : MonoBehaviour
     void Start()
     {
         ChooseCharacterImage.SetActive(false);
+        ClickTime = 0;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            if (Camera.main.ScreenToViewportPoint(Input.mousePosition).x>0.3f&& Camera.main.ScreenToViewportPoint(Input.mousePosition).x < 0.7f)
+            {
+                ClickTime += Time.deltaTime;
+            }
+        }
+        else
+        {
+            ClickTime = 0;
+        }
     }
 
     public void OnClickChooseCharacter()
     {
-        ChooseCharacterImage.SetActive(true);
+        if (ClickTime <= ClickMaxTime)
+        {
+            ChooseCharacterImage.SetActive(true);
+        }
     }
     public void OnClickCloseCharacter()
     {
