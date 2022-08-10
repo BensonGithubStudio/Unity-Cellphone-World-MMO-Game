@@ -9410,7 +9410,7 @@ GameObject:
   - component: {fileID: 1299271349796313276}
   - component: {fileID: 7652653187615078648}
   m_Layer: 0
-  m_Name: Bullet 1
+  m_Name: Bullet 2
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9623,7 +9623,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.47450984, g: 0.60212827, b: 1, a: 1}
+      maxColor: {r: 0.87546563, g: 0.47450984, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14163,7 +14163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 1926123350825304241}
-  LifeTime: 0.7
+  LifeTime: 1
   MoveSpeed: 7
   BulletStrong: 20
 --- !u!1 &1895495867692975517
