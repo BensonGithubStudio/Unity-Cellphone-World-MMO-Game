@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             if(ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x == 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y == 0)
             {
                 Player.transform.eulerAngles = new Vector3(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z);
-                PhotonNetwork.Instantiate(BulletKind, Player.transform.position, Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
+                PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
                 CanShoot = false;
             }
         }

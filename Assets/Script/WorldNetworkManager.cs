@@ -24,7 +24,12 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
             if (PlayerPrefs.GetInt("Character") == 0)
             {
                 PhotonNetwork.Instantiate("Player 1", StartPosition[count].transform.position, Quaternion.identity);
-                PhotonNetwork.Instantiate("Shoot Aim", StartPosition[count].transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate("Shoot Aim 1", StartPosition[count].transform.position, Quaternion.identity);
+            }
+            else if (PlayerPrefs.GetInt("Character") == 1)
+            {
+                PhotonNetwork.Instantiate("Player 2", StartPosition[count].transform.position, Quaternion.identity);
+                PhotonNetwork.Instantiate("Shoot Aim 2", StartPosition[count].transform.position, Quaternion.identity);
             }
         }
     }

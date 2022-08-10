@@ -30,4 +30,16 @@ public class BulletControl : MonoBehaviour
             transform.Translate(0, 0, MoveSpeed * Time.deltaTime);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        print("111");
+        if (pv.IsMine)
+        {
+            if (collision.gameObject.tag == "Untagged")
+            {
+                PhotonNetwork.Destroy(this.gameObject);
+            }
+        }
+    }
 }
