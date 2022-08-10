@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
 {
     public InputField PlayerName;
     public Text PlayerLevel;
+    public GameObject[] CharacterKind;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,16 @@ public class PlayerData : MonoBehaviour
         if (PlayerPrefs.HasKey("Level"))
         {
             PlayerLevel.text = "" + (PlayerPrefs.GetInt("Level") / 2);
+        }
+
+        if (PlayerPrefs.HasKey("Character"))
+        {
+            CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Character", 0);
+            CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         }
     }
 
