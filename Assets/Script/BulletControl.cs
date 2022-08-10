@@ -30,18 +30,4 @@ public class BulletControl : MonoBehaviour
             transform.Translate(0, 0, MoveSpeed * Time.deltaTime);
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (pv.IsMine)
-        {
-            if (other.gameObject.tag == "Player Body")
-            {
-                if (!other.gameObject.GetComponent<PhotonView>().IsMine)
-                {
-                    print("123");
-                }
-            }
-        }
-    }
 }

@@ -252,10 +252,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 ShootAim.transform.localEulerAngles = new Vector3(0, 180 - (90 * ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x), 0);
             }
         }
-        else
+        else if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x != 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y != 0)
         {
             ShootAim.SetActive(false);
             CanShoot = false;
+        }
+        else
+        {
+            ShootAim.SetActive(false);
         }
     }
 

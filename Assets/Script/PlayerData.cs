@@ -17,7 +17,7 @@ public class PlayerData : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("Level"))
         {
-            PlayerLevel.text = PlayerPrefs.GetString("Level");
+            PlayerLevel.text = "" + (PlayerPrefs.GetInt("Level") / 2);
         }
     }
 
