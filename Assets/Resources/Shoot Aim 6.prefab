@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1335357805951950640}
   - component: {fileID: 114556667822809918}
   m_Layer: 0
-  m_Name: Shoot Aim 2
+  m_Name: Shoot Aim 6
   m_TagString: Shoot Aim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
