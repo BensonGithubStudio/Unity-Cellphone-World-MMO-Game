@@ -109,4 +109,26 @@ public class StartSceneButton : MonoBehaviour
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
+
+    public void OnClickChooseCharacter7()
+    {
+        PlayerPrefs.SetInt("Character", 6);
+        for (int i = 0; i < CharacterKind.Length; i++)
+        {
+            CharacterKind[i].SetActive(false);
+        }
+        CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        ChooseCharacterImage.SetActive(false);
+    }
+
+    public void OnClickChooseCharacter8()
+    {
+        PlayerPrefs.SetInt("Character", 7);
+        for (int i = 0; i < CharacterKind.Length; i++)
+        {
+            CharacterKind[i].SetActive(false);
+        }
+        CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        ChooseCharacterImage.SetActive(false);
+    }
 }
