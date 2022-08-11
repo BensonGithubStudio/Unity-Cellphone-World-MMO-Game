@@ -16,6 +16,8 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        QualitySettings.SetQualityLevel(5);
+
         StartButton.interactable = false;
         ConnectingUI.gameObject.SetActive(true);
         WaitingInGameUI.gameObject.SetActive(false);
