@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 54162505652554744}
   m_Layer: 0
   m_Name: Player 4
-  m_TagString: Untagged
+  m_TagString: Player Body
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,6 +166,8 @@ MonoBehaviour:
   LeaveButton: {fileID: 0}
   CanMove: 0
   CanShoot: 0
+  AutoShoot: 0
+  DontAutoShoot: 0
   NowHp: 0
   FollowHp: 0
   CanTreat: 0

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [Header("玩家狀態")]
     public bool CanMove;
     public bool CanShoot;
+    public bool AutoShoot;
+    public bool DontAutoShoot;
     public float NowHp;
     public float FollowHp;
     public bool CanTreat;
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void Start()
     {
         CanShoot = false;
+        AutoShoot = false;
+        DontAutoShoot = true;
         NowHp = MaxHp;
         FollowHp = MaxHp;
         CanTreat = true;
@@ -243,6 +247,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             ShootAim.SetActive(true);
             CanShoot = true;
+            AutoShoot = false;
+            DontAutoShoot = true;
             if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y > 0)
             {
                 ShootAim.transform.localEulerAngles = new Vector3(0, 90 * ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x, 0);
@@ -256,10 +262,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             ShootAim.SetActive(false);
             CanShoot = false;
+            if (!DontAutoShoot)
+            {
+                AutoShoot = true;
+            }
         }
         else
         {
             ShootAim.SetActive(false);
+            DontAutoShoot = false;
         }
     }
 
@@ -272,6 +283,56 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 Player.transform.eulerAngles = new Vector3(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z);
                 PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
                 CanShoot = false;
+            }
+        }
+
+        if (AutoShoot)
+        {
+            if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x == 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y == 0)
+            {
+                GameObject[] ScenePlayers = GameObject.FindGameObjectsWithTag("Player Body");
+                int PlayersCount = ScenePlayers.Length;
+                float[] distance = new float[PlayersCount];
+                int i = 0;
+                GameObject TargetObject = null;
+                float TempDistance = 0;
+
+                foreach(GameObject player in ScenePlayers)
+                {
+                    if (!player.GetComponent<PhotonView>().IsMine)
+                    {
+                        distance[i] = Vector3.Distance(Player.transform.position, player.transform.position);
+                        i++;
+                    }
+                    else
+                    {
+                        distance[i] = 1000000;
+                        i++;
+                    }
+                }
+
+                i = 0;
+
+                foreach(float dis in distance)
+                {
+                    if (TargetObject == null)
+                    {
+                        TargetObject = ScenePlayers[i];
+                        TempDistance = dis;
+                    }
+
+                    if (TempDistance > dis)
+                    {
+                        TempDistance = dis;
+                        TargetObject = ScenePlayers[i];
+                    }
+                    i++;
+                }
+                
+                transform.LookAt(TargetObject.transform);
+                PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(Player.transform.localEulerAngles.x, Player.transform.localEulerAngles.y, Player.transform.localEulerAngles.z));
+
+                AutoShoot = false;
             }
         }
     }

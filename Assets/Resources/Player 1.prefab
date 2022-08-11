@@ -130,6 +130,8 @@ MonoBehaviour:
   LeaveButton: {fileID: 0}
   CanMove: 0
   CanShoot: 0
+  AutoShoot: 0
+  DontAutoShoot: 0
   NowHp: 0
   FollowHp: 0
   CanTreat: 0
