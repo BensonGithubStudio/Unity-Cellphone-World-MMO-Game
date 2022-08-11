@@ -1276,7 +1276,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875763274178167236}
-  - component: {fileID: 875763274169183842}
   - component: {fileID: 8622473191090537643}
   - component: {fileID: 5085866397973238284}
   - component: {fileID: 4913661073801093639}
@@ -1284,6 +1283,7 @@ GameObject:
   - component: {fileID: 811315120275050936}
   - component: {fileID: 8342945392006560939}
   - component: {fileID: 1019481137917695196}
+  - component: {fileID: 95563511442425210}
   m_Layer: 0
   m_Name: Player 8
   m_TagString: Player Body
@@ -1310,25 +1310,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!95 &875763274169183842
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875763274178534884}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3353e4f866c39d043a315b41717c9bb7, type: 3}
-  m_Controller: {fileID: 9100000, guid: ad8c5523f2b576b418ee719654ad4604, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8622473191090537643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1400,7 +1381,7 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: IsDie
   m_SynchronizeLayers:
   - SynchronizeType: 0
@@ -1457,7 +1438,7 @@ MonoBehaviour:
   MiddleBloodBar: {fileID: 0}
   ShootAim: {fileID: 0}
   LeaveButton: {fileID: 0}
-  PlayerAnimator: {fileID: 875763274169183842}
+  PlayerAnimator: {fileID: 95563511442425210}
   CanMove: 0
   CanShoot: 0
   AutoShoot: 0
@@ -1472,6 +1453,25 @@ MonoBehaviour:
   HpFollowSpeed: 15
   CamMoveSpeed: 3
   treatTime: 0
+--- !u!95 &95563511442425210
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875763274178534884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 438e83f98a02b3843885cf9d5d49f55e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &875763274178534886
 GameObject:
   m_ObjectHideFlags: 0
