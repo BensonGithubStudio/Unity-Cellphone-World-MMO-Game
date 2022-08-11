@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject ShootAim;
     public GameObject LeaveButton;
 
+    [Header("動畫管理")]
+    public Animator PlayerAnimator;
+
     [Header("玩家狀態")]
     public bool CanMove;
     public bool CanShoot;
@@ -49,6 +52,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         CanTreat = true;
         IsAlive = true;
         treatTime = 3;
+        PlayerAnimator.SetBool("IsDie", false);
+        PlayerAnimator.enabled = false;
     }
 
     // Update is called once per frame
@@ -351,6 +356,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             IsAlive = false;
             LeaveButton.SetActive(true);
+            PlayerAnimator.enabled = true;
+            PlayerAnimator.SetBool("IsDie", true);
             if (Cam.transform.position.y <= 11.5f)
             {
                 Cam.transform.Translate(0, 0, -CamMoveSpeed * Time.deltaTime);

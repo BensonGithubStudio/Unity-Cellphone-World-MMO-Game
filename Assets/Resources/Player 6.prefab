@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114541777238321108}
   - component: {fileID: 135307896457806134}
   - component: {fileID: 54664806337170876}
+  - component: {fileID: 114810842556103276}
   m_Layer: 0
   m_Name: Player 6
   m_TagString: Player Body
@@ -93,7 +94,7 @@ Animator:
   m_GameObject: {fileID: 8168010080532371507}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 74a6c52bc2e330948b03c27a7cd2d481, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 438e83f98a02b3843885cf9d5d49f55e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -122,6 +123,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 114166564716359492}
+  - {fileID: 114810842556103276}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -164,6 +166,7 @@ MonoBehaviour:
   MiddleBloodBar: {fileID: 0}
   ShootAim: {fileID: 0}
   LeaveButton: {fileID: 0}
+  PlayerAnimator: {fileID: 8168010080522890227}
   CanMove: 0
   CanShoot: 0
   AutoShoot: 0
@@ -207,3 +210,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &114810842556103276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168010080532371507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 4
+    SynchronizeType: 1
+    Name: IsDie
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
