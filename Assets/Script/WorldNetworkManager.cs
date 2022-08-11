@@ -8,10 +8,13 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
 {
     public int StartPositionCount;
     public GameObject[] StartPosition;
+    public GameObject WifiImage;
 
     // Start is called before the first frame update
     void Start()
     {
+        WifiImage.SetActive(false);
+
         if (PhotonNetwork.IsConnected == false)
         {
             SceneManager.LoadScene("Start Scene");
@@ -51,6 +54,18 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
                 PhotonNetwork.Instantiate("Player 6", StartPosition[count].transform.position, Quaternion.identity);
                 PhotonNetwork.Instantiate("Shoot Aim 6", StartPosition[count].transform.position, Quaternion.identity);
             }
+        }
+    }
+
+    void Update()
+    {
+        if (PhotonNetwork.GetPing() > 200)
+        {
+            WifiImage.SetActive(true);
+        }
+        else
+        {
+            WifiImage.SetActive(false);
         }
     }
 
