@@ -328,6 +328,12 @@ MonoBehaviour:
   HpFollowSpeed: 15
   CamMoveSpeed: 3
   treatTime: 0
+  SingleKind: 0
+  RandomKind: 0
+  RangeKind: 0
+  ContinueStraightKind: 0
+  ScatterKind: 0
+  ScatterStraightKind: 0
 --- !u!95 &5630095070029094997
 Animator:
   serializedVersion: 3

@@ -41,6 +41,14 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float CamMoveSpeed;
     public float treatTime;
 
+    [Header("子彈類型")]
+    public bool SingleKind;//單一子彈
+    public bool RandomKind;//某範圍內隨機
+    public bool RangeKind;//周圍
+    public bool ContinueStraightKind;//連續直線
+    public bool ScatterKind;//散彈
+    public bool ScatterStraightKind;//分散直線
+
     // Start is called before the first frame update
     void Start()
     {
