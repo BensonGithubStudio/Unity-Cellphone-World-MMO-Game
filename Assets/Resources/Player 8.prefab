@@ -1438,6 +1438,7 @@ MonoBehaviour:
   MiddleBloodBar: {fileID: 0}
   ShootAim: {fileID: 0}
   LeaveButton: {fileID: 0}
+  EnergyBar: {fileID: 0}
   PlayerAnimator: {fileID: 95563511442425210}
   CanMove: 0
   CanShoot: 0
@@ -1447,12 +1448,20 @@ MonoBehaviour:
   FollowHp: 0
   CanTreat: 0
   IsAlive: 0
+  NowEnergy: 0
   MoveSpeed: 20
   BulletKind: Bullet 8
   MaxHp: 100
   HpFollowSpeed: 15
   CamMoveSpeed: 3
   treatTime: 0
+  EnergySpeed: 3
+  SingleKind: 0
+  RandomKind: 0
+  RangeKind: 0
+  ContinueStraightKind: 0
+  ScatterKind: 0
+  ScatterStraightKind: 0
 --- !u!95 &95563511442425210
 Animator:
   serializedVersion: 3
