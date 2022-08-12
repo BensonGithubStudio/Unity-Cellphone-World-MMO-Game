@@ -27,7 +27,7 @@ public class PlayerData : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("Character", 0);
+            PlayerPrefs.SetInt("Character", 7);
             CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         }
     }
