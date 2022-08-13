@@ -334,9 +334,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
                         NowEnergy -= 267;
                     }
 
-                    CanShoot = false;
                     ShootWaitTime = 0;
                 }
+                CanShoot = false;
             }
         }
 
@@ -394,9 +394,9 @@ public class PlayerController : MonoBehaviourPunCallbacks
                         NowEnergy -= 267;
                     }
 
-                    AutoShoot = false;
                     ShootWaitTime = 0;
                 }
+                AutoShoot = false;
             }
         }
     }

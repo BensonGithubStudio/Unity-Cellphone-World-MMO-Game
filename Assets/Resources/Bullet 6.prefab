@@ -14163,7 +14163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 1926123350825304241}
-  LifeTime: 1
+  LifeTime: 0.8
   MoveSpeed: 7
   BulletStrong: 20
 --- !u!1 &1895495867692975517
