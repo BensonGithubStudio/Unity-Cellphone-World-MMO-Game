@@ -14163,8 +14163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 1926123350825304241}
-  LifeTime: 1
-  MoveSpeed: 7
+  LifeTime: 0.7
+  MoveSpeed: 10
   BulletStrong: 20
 --- !u!1 &1895495867692975517
 GameObject:

@@ -5,6 +5,8 @@ using Photon.Pun;
 
 public class PlayerShootKind : MonoBehaviour
 {
+    public int Character4ShootTimes;
+
     public void PlayerAimShoot()
     {
         if (PlayerPrefs.GetInt("Character") == 0) {
@@ -20,6 +22,28 @@ public class PlayerShootKind : MonoBehaviour
             PhotonNetwork.Instantiate("Bullet 2", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y - 10, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
             PhotonNetwork.Instantiate("Bullet 2", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y - 20, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
             PhotonNetwork.Instantiate("Bullet 2", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y - 30, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+
+        }
+
+        if (PlayerPrefs.GetInt("Character") == 2)
+        {
+            PhotonNetwork.Instantiate("Bullet 3", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+        }
+
+        if (PlayerPrefs.GetInt("Character") == 3)
+        {
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y + 45, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y + 90, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y + 135, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y + 180, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y - 45, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y -90, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y - 135, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+        }
+
+        if(PlayerPrefs.GetInt("Character") == 4)
+        {
 
         }
     }
@@ -42,5 +66,37 @@ public class PlayerShootKind : MonoBehaviour
             PhotonNetwork.Instantiate("Bullet 2", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y - 30, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
 
         }
+
+        if (PlayerPrefs.GetInt("Character") == 2)
+        {
+            PhotonNetwork.Instantiate("Bullet 3", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+        }
+
+        if (PlayerPrefs.GetInt("Character") == 3)
+        {
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y + 45, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y + 90, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y + 135, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y + 180, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y - 45, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y - 90, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            PhotonNetwork.Instantiate("Bullet 4", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y - 135, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+        }
+
+        if(PlayerPrefs.GetInt("Character") == 4)
+        {
+
+        }
+    }
+
+    void Character4AimShoot()
+    {
+
+    }
+
+    void Character4AutoShoot()
+    {
+
     }
 }

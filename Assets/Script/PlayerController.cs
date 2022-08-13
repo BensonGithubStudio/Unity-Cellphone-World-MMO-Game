@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public float CamMoveSpeed;
     public float treatTime;
     public float EnergySpeed;
+    public float ShootWaitTime;
 
     [Header("子彈類型")]
     public bool SingleKind;//單一子彈
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         treatTime = 3;
         PlayerAnimator.SetBool("IsDie", false);
         PlayerAnimator.enabled = false;
+        ShootWaitTime = 0;
     }
 
     // Update is called once per frame
@@ -85,6 +87,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 ShootRotate();
                 ShootControl();
                 BloodTreat();
+
+                ShootWaitTime += Time.deltaTime;
             }
             BloodBarControl();
         }
@@ -319,16 +323,20 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x == 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y == 0)
             {
-                if (NowEnergy >= -534)
+                if (ShootWaitTime >= 0.5f)
                 {
-                    Player.transform.eulerAngles = new Vector3(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z);
-                    //PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
-                    Player.gameObject.GetComponent<PlayerShootKind>().PlayerAimShoot();
+                    if (NowEnergy >= -534)
+                    {
+                        Player.transform.eulerAngles = new Vector3(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z);
+                        //PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
+                        Player.gameObject.GetComponent<PlayerShootKind>().PlayerAimShoot();
 
-                    NowEnergy -= 267;
+                        NowEnergy -= 267;
+                    }
+
+                    CanShoot = false;
+                    ShootWaitTime = 0;
                 }
-
-                CanShoot = false;
             }
         }
 
@@ -336,55 +344,59 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if (ShootJoystick.GetComponent<JoyStickControl>().InputDirection.x == 0 && ShootJoystick.GetComponent<JoyStickControl>().InputDirection.y == 0)
             {
-                if (NowEnergy >= -534)
+                if (ShootWaitTime >= 0.5f)
                 {
-                    GameObject[] ScenePlayers = GameObject.FindGameObjectsWithTag("Player Body");
-                    int PlayersCount = ScenePlayers.Length;
-                    float[] distance = new float[PlayersCount];
-                    int i = 0;
-                    GameObject TargetObject = null;
-                    float TempDistance = 0;
-
-                    foreach (GameObject player in ScenePlayers)
+                    if (NowEnergy >= -534)
                     {
-                        if (!player.GetComponent<PhotonView>().IsMine)
+                        GameObject[] ScenePlayers = GameObject.FindGameObjectsWithTag("Player Body");
+                        int PlayersCount = ScenePlayers.Length;
+                        float[] distance = new float[PlayersCount];
+                        int i = 0;
+                        GameObject TargetObject = null;
+                        float TempDistance = 0;
+
+                        foreach (GameObject player in ScenePlayers)
                         {
-                            distance[i] = Vector3.Distance(Player.transform.position, player.transform.position);
+                            if (!player.GetComponent<PhotonView>().IsMine)
+                            {
+                                distance[i] = Vector3.Distance(Player.transform.position, player.transform.position);
+                                i++;
+                            }
+                            else
+                            {
+                                distance[i] = 1000000;
+                                i++;
+                            }
+                        }
+
+                        i = 0;
+
+                        foreach (float dis in distance)
+                        {
+                            if (TargetObject == null)
+                            {
+                                TargetObject = ScenePlayers[i];
+                                TempDistance = dis;
+                            }
+
+                            if (TempDistance > dis)
+                            {
+                                TempDistance = dis;
+                                TargetObject = ScenePlayers[i];
+                            }
                             i++;
                         }
-                        else
-                        {
-                            distance[i] = 1000000;
-                            i++;
-                        }
+
+                        transform.LookAt(TargetObject.transform);
+                        //PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(Player.transform.localEulerAngles.x, Player.transform.localEulerAngles.y, Player.transform.localEulerAngles.z));
+                        Player.gameObject.GetComponent<PlayerShootKind>().PlayerAutoShoot();
+
+                        NowEnergy -= 267;
                     }
 
-                    i = 0;
-
-                    foreach (float dis in distance)
-                    {
-                        if (TargetObject == null)
-                        {
-                            TargetObject = ScenePlayers[i];
-                            TempDistance = dis;
-                        }
-
-                        if (TempDistance > dis)
-                        {
-                            TempDistance = dis;
-                            TargetObject = ScenePlayers[i];
-                        }
-                        i++;
-                    }
-
-                    transform.LookAt(TargetObject.transform);
-                    //PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(Player.transform.localEulerAngles.x, Player.transform.localEulerAngles.y, Player.transform.localEulerAngles.z));
-                    Player.gameObject.GetComponent<PlayerShootKind>().PlayerAutoShoot();
-
-                    NowEnergy -= 267;
+                    AutoShoot = false;
+                    ShootWaitTime = 0;
                 }
-
-                AutoShoot = false;
             }
         }
     }

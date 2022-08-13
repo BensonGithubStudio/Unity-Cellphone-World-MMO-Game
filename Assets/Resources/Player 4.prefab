@@ -253,5 +253,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f088d7e17c3a2348ba22419ffc81aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet1: 
-  NowCharacter: 3
