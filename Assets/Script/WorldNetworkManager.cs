@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WorldNetworkManager : MonoBehaviourPunCallbacks
 {
     public int StartPositionCount;
     public GameObject[] StartPosition;
     public GameObject WifiImage;
+    public Text EnemyCountText;
 
     public AudioSource BackgroundAudioSource;
     public AudioClip[] BackgroundSound;
@@ -84,6 +86,8 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
         {
             WifiImage.SetActive(false);
         }
+
+        EnemyCountText.text = "剩餘敵人：" + (PhotonNetwork.CurrentRoom.PlayerCount - 1);
     }
 
     public override void OnLeftRoom()
