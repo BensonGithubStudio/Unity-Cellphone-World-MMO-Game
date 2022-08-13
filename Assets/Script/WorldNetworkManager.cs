@@ -26,9 +26,18 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            int sound = Random.Range(0, BackgroundSound.Length);
-            BackgroundAudioSource.clip = BackgroundSound[sound];
-            BackgroundAudioSource.Play();
+            if (PlayerPrefs.HasKey("NotFirst"))
+            {
+                int sound = Random.Range(0, BackgroundSound.Length);
+                BackgroundAudioSource.clip = BackgroundSound[sound];
+                BackgroundAudioSource.Play();
+            }
+            else
+            {
+                BackgroundAudioSource.clip = BackgroundSound[2];
+                BackgroundAudioSource.Play();
+                PlayerPrefs.SetInt("NotFirst", 1);
+            }
 
             int count = Random.Range(0, StartPositionCount);
             PhotonNetwork.Instantiate("Main Camera", StartPosition[count].transform.position, Quaternion.Euler(90, 0, 0));

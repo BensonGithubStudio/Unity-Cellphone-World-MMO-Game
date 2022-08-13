@@ -205,6 +205,24 @@ public class SettingControl : MonoBehaviour
         ButtonAudioSource.PlayOneShot(ClickButtonSound);
         PlayerPrefs.DeleteKey("Name");
         PlayerPrefs.DeleteKey("Level");
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void OnClickDeleteAllData()
+    {
+        ButtonAudioSource.PlayOneShot(ClickButtonSound);
+        PlayerPrefs.DeleteAll();
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void OnClickDeletePreferData()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void OnClickDeleteQualityData()
+    {
+        PhotonNetwork.LeaveRoom();
     }
 
     public void OnClickPlayerInformation()
