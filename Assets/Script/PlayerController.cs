@@ -322,7 +322,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 if (NowEnergy >= -534)
                 {
                     Player.transform.eulerAngles = new Vector3(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z);
-                    PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
+                    //PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(ShootAim.transform.localEulerAngles.x, ShootAim.transform.localEulerAngles.y, ShootAim.transform.localEulerAngles.z));
+                    Player.gameObject.GetComponent<PlayerShootKind>().PlayerAimShoot();
 
                     NowEnergy -= 267;
                 }
@@ -377,7 +378,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     }
 
                     transform.LookAt(TargetObject.transform);
-                    PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(Player.transform.localEulerAngles.x, Player.transform.localEulerAngles.y, Player.transform.localEulerAngles.z));
+                    //PhotonNetwork.Instantiate(BulletKind, new Vector3(Player.transform.position.x, Player.transform.position.y + 0.2f, Player.transform.position.z), Quaternion.Euler(Player.transform.localEulerAngles.x, Player.transform.localEulerAngles.y, Player.transform.localEulerAngles.z));
+                    Player.gameObject.GetComponent<PlayerShootKind>().PlayerAutoShoot();
 
                     NowEnergy -= 267;
                 }
