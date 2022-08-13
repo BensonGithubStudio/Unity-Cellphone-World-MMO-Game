@@ -10,6 +10,7 @@ public class SettingControl : MonoBehaviour
     public GameObject SettingAllUI;
     public GameObject QualitySettingUI;
     public GameObject SoundAndMusicSettingUI;
+    public Slider MusicSlider;
     public GameObject GameDataUI;
     public GameObject SpecialUI;
     public Toggle CanRotateToggle;
@@ -22,12 +23,18 @@ public class SettingControl : MonoBehaviour
 
         QualitySettingUI.SetActive(false);
         SoundAndMusicSettingUI.SetActive(false);
+        MusicSlider.value = 1;
         GameDataUI.SetActive(false);
         SpecialUI.SetActive(false);
         PlayerInformationUI.SetActive(false);
         PreferUI.SetActive(false);
 
         CanRotateToggle.isOn = false;
+    }
+
+    void Update()
+    {
+        this.gameObject.GetComponent<WorldNetworkManager>().BackgroundAudioSource.volume = MusicSlider.value;
     }
 
     public void OnClickLeaveGame()

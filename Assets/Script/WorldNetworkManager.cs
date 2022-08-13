@@ -10,6 +10,9 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
     public GameObject[] StartPosition;
     public GameObject WifiImage;
 
+    public AudioSource BackgroundAudioSource;
+    public AudioClip[] BackgroundSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,10 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            int sound = Random.Range(0, BackgroundSound.Length);
+            BackgroundAudioSource.clip = BackgroundSound[sound];
+            BackgroundAudioSource.Play();
+
             int count = Random.Range(0, StartPositionCount);
             PhotonNetwork.Instantiate("Main Camera", StartPosition[count].transform.position, Quaternion.Euler(90, 0, 0));
             PhotonNetwork.Instantiate("Game UI", StartPosition[count].transform.position, Quaternion.identity);
