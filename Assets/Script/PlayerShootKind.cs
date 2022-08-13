@@ -6,6 +6,7 @@ using Photon.Pun;
 public class PlayerShootKind : MonoBehaviour
 {
     public int Character4ShootTimes;
+    public int Character7ShootTimes;
 
     public void PlayerAimShoot()
     {
@@ -57,7 +58,8 @@ public class PlayerShootKind : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Character") == 6)
         {
-
+            Character7ShootTimes = 0;
+            Character7AutoShoot();
         }
 
         if (PlayerPrefs.GetInt("Character") == 7)
@@ -117,7 +119,8 @@ public class PlayerShootKind : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Character") == 6)
         {
-
+            Character7ShootTimes = 0;
+            Character7AutoShoot();
         }
 
         if (PlayerPrefs.GetInt("Character") == 7)
@@ -143,6 +146,28 @@ public class PlayerShootKind : MonoBehaviour
             PhotonNetwork.Instantiate("Bullet 5", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
             Character4ShootTimes += 1;
             Invoke("Character4AutoShoot", 0.1f);
+        }
+    }
+
+    void Character7AimShoot()
+    {
+        if (Character7ShootTimes < 5)
+        {
+            float a = Random.Range(-20f, 20f);
+            PhotonNetwork.Instantiate("Bullet 7", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.y + a, this.gameObject.GetComponent<PlayerController>().ShootAim.transform.localEulerAngles.z));
+            Character7ShootTimes += 1;
+            Invoke("Character7AimShoot", 0.1f);
+        }
+    }
+
+    void Character7AutoShoot()
+    {
+        if (Character7ShootTimes < 5)
+        {
+            float a = Random.Range(-20f, 20);
+            PhotonNetwork.Instantiate("Bullet 7", new Vector3(this.gameObject.GetComponent<PlayerController>().Player.transform.position.x, this.gameObject.GetComponent<PlayerController>().Player.transform.position.y + 0.2f, this.gameObject.GetComponent<PlayerController>().Player.transform.position.z), Quaternion.Euler(this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.x, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.y + a, this.gameObject.GetComponent<PlayerController>().Player.transform.localEulerAngles.z));
+            Character7ShootTimes += 1;
+            Invoke("Character7AutoShoot", 0.1f);
         }
     }
 }

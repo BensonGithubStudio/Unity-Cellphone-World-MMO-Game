@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     [Header("參數設定")]
     public float MoveSpeed;
+    public float MaxSpeed;
     public string BulletKind;
     public float MaxHp;
     public float HpFollowSpeed;
@@ -277,7 +278,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (CanMove)
         {
             
-            if (PlayerRigidBody.velocity.magnitude < 5)
+            if (PlayerRigidBody.velocity.magnitude < MaxSpeed)
             {
                 PlayerRigidBody.AddRelativeForce(0, 0, MoveSpeed);
             }

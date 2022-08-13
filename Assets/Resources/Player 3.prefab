@@ -179,6 +179,7 @@ MonoBehaviour:
   IsAlive: 0
   NowEnergy: 0
   MoveSpeed: 20
+  MaxSpeed: 5
   BulletKind: Bullet 3
   MaxHp: 100
   HpFollowSpeed: 15
@@ -255,3 +256,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character4ShootTimes: 0
+  Character7ShootTimes: 0
