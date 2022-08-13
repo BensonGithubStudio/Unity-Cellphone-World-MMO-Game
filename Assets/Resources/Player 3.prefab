@@ -179,7 +179,7 @@ MonoBehaviour:
   IsAlive: 0
   NowEnergy: 0
   MoveSpeed: 20
-  MaxSpeed: 5
+  MaxSpeed: 8.3
   BulletKind: Bullet 3
   MaxHp: 100
   HpFollowSpeed: 15
