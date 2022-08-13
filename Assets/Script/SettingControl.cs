@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class SettingControl : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class SettingControl : MonoBehaviour
     public GameObject QualitySettingUI;
     public GameObject SoundAndMusicSettingUI;
     public GameObject GameDataUI;
+    public GameObject SpecialUI;
+    public Toggle CanRotateToggle;
     public GameObject PlayerInformationUI;
     public GameObject PreferUI;
 
@@ -20,8 +23,11 @@ public class SettingControl : MonoBehaviour
         QualitySettingUI.SetActive(false);
         SoundAndMusicSettingUI.SetActive(false);
         GameDataUI.SetActive(false);
+        SpecialUI.SetActive(false);
         PlayerInformationUI.SetActive(false);
         PreferUI.SetActive(false);
+
+        CanRotateToggle.isOn = false;
     }
 
     public void OnClickLeaveGame()
@@ -51,6 +57,7 @@ public class SettingControl : MonoBehaviour
             GameDataUI.SetActive(false);
             PlayerInformationUI.SetActive(false);
             PreferUI.SetActive(false);
+            SpecialUI.SetActive(false);
             QualitySettingUI.SetActive(true);
         }
     }
@@ -92,7 +99,47 @@ public class SettingControl : MonoBehaviour
             GameDataUI.SetActive(false);
             PlayerInformationUI.SetActive(false);
             PreferUI.SetActive(false);
+            SpecialUI.SetActive(false);
             SoundAndMusicSettingUI.SetActive(true);
+        }
+    }
+
+    public void OnClickSpecialSetting()
+    {
+        if (SpecialUI.activeSelf)
+        {
+            SpecialUI.SetActive(false);
+        }
+        else
+        {
+            SoundAndMusicSettingUI.SetActive(false);
+            GameDataUI.SetActive(false);
+            PlayerInformationUI.SetActive(false);
+            PreferUI.SetActive(false);
+            QualitySettingUI.SetActive(false);
+            SpecialUI.SetActive(true);
+        }
+    }
+
+    public void OnClickCharacterCanRotate()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player Body");
+        GameObject MyPlayer = null;
+
+        foreach (GameObject player in players)
+        {
+            if (player.GetComponent<PhotonView>().IsMine)
+            {
+                MyPlayer = player;
+            }
+        }
+
+        if (CanRotateToggle.isOn) {
+            MyPlayer.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
+        else
+        {
+            MyPlayer.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 
@@ -108,6 +155,7 @@ public class SettingControl : MonoBehaviour
             SoundAndMusicSettingUI.SetActive(false);
             PlayerInformationUI.SetActive(false);
             PreferUI.SetActive(false);
+            SpecialUI.SetActive(false);
             GameDataUI.SetActive(true);
         }
     }
@@ -130,6 +178,7 @@ public class SettingControl : MonoBehaviour
             SoundAndMusicSettingUI.SetActive(false);
             GameDataUI.SetActive(false);
             PreferUI.SetActive(false);
+            SpecialUI.SetActive(false);
             PlayerInformationUI.SetActive(true);
         }
     }
@@ -146,6 +195,7 @@ public class SettingControl : MonoBehaviour
             SoundAndMusicSettingUI.SetActive(false);
             GameDataUI.SetActive(false);
             PlayerInformationUI.SetActive(false);
+            SpecialUI.SetActive(false);
             PreferUI.SetActive(true);
         }
     }
