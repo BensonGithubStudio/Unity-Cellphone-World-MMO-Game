@@ -13,6 +13,8 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
     public Text LoadingText;
     public Button StartButton;
 
+    public AudioSource BackgroundMusicAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,8 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
         ConnectingUI.gameObject.SetActive(true);
         WaitingInGameUI.gameObject.SetActive(false);
         PhotonNetwork.AutomaticallySyncScene = true;
+        BackgroundMusicAudioSource.Stop();
+
 
         if (!PhotonNetwork.IsConnected)
         {
@@ -36,6 +40,8 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
+        BackgroundMusicAudioSource.Play();
+
         StartButton.interactable = true;
         LoadingText.text = "80%";
         LoadingBar.transform.localPosition = new Vector3(-80, 0, 0);
