@@ -8,6 +8,10 @@ public class StartSceneButton : MonoBehaviour
     public float ClickTime;
     public float ClickMaxTime;
 
+    public AudioSource ButtonAudioSource;
+    public AudioClip ClickSound;
+    public AudioClip ChooseSound;
+
     public GameObject ChooseCharacterImage;
     public GameObject[] CharacterKind;
     public GameObject[] IntroduceText;
@@ -39,16 +43,19 @@ public class StartSceneButton : MonoBehaviour
     {
         if (ClickTime <= ClickMaxTime)
         {
+            ButtonAudioSource.PlayOneShot(ClickSound);
             ChooseCharacterImage.SetActive(true);
         }
     }
     public void OnClickCloseCharacter()
     {
+        ButtonAudioSource.PlayOneShot(ClickSound);
         ChooseCharacterImage.SetActive(false);
     }
 
     public void OnClickChooseCharacter1()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 0);
         for(int i = 0; i < CharacterKind.Length; i++)
         {
@@ -62,6 +69,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter2()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 1);
         for (int i = 0; i < CharacterKind.Length; i++)
         {
@@ -75,6 +83,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter3()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 2);
         for (int i = 0; i < CharacterKind.Length; i++)
         {
@@ -88,6 +97,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter4()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 3);
         for (int i = 0; i < CharacterKind.Length; i++)
         {
@@ -101,6 +111,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter5()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 4);
         for (int i = 0; i < CharacterKind.Length; i++)
         {
@@ -114,6 +125,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter6()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 5);
         for (int i = 0; i < CharacterKind.Length; i++)
         {
@@ -127,6 +139,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter7()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 6);
         for (int i = 0; i < CharacterKind.Length; i++)
         {
@@ -140,6 +153,7 @@ public class StartSceneButton : MonoBehaviour
 
     public void OnClickChooseCharacter8()
     {
+        ButtonAudioSource.PlayOneShot(ChooseSound);
         PlayerPrefs.SetInt("Character", 7);
         for (int i = 0; i < CharacterKind.Length; i++)
         {

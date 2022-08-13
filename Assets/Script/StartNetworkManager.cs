@@ -14,6 +14,8 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
     public Button StartButton;
 
     public AudioSource BackgroundMusicAudioSource;
+    public AudioSource ButtonAudioSource;
+    public AudioClip StartGameSound;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +70,7 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 
     public void OnClickStartGame()
     {
+        ButtonAudioSource.PlayOneShot(StartGameSound);
         WaitingInGameUI.gameObject.SetActive(true);
         PhotonNetwork.JoinRoom("World");
     }
@@ -88,12 +91,7 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 
     void GoInGame()
     {
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
         SceneManager.LoadScene("World Scene");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

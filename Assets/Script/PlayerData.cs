@@ -18,7 +18,7 @@ public class PlayerData : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("Level"))
         {
-            PlayerLevel.text = "" + (PlayerPrefs.GetInt("Level") / 2);
+            PlayerLevel.text = "" + PlayerPrefs.GetInt("Level");
         }
 
         if (PlayerPrefs.HasKey("Character"))
