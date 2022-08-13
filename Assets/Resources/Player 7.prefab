@@ -328,7 +328,7 @@ MonoBehaviour:
   MoveSpeed: 20
   MaxSpeed: 7.3
   BulletKind: Bullet 7
-  MaxHp: 100
+  MaxHp: 147
   HpFollowSpeed: 15
   CamMoveSpeed: 3
   treatTime: 0

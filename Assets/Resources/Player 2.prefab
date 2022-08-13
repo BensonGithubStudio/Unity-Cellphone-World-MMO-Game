@@ -181,7 +181,7 @@ MonoBehaviour:
   MoveSpeed: 20
   MaxSpeed: 4
   BulletKind: Bullet 2
-  MaxHp: 100
+  MaxHp: 187
   HpFollowSpeed: 15
   CamMoveSpeed: 3
   treatTime: 0
