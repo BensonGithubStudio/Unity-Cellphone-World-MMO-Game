@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartSceneButton : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class StartSceneButton : MonoBehaviour
 
     public GameObject ChooseCharacterImage;
     public GameObject[] CharacterKind;
+    public GameObject[] IntroduceText;
 
     // Start is called before the first frame update
     void Start()
     {
         ChooseCharacterImage.SetActive(false);
         ClickTime = 0;
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
     }
 
     void Update()
@@ -50,8 +53,10 @@ public class StartSceneButton : MonoBehaviour
         for(int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -61,8 +66,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -72,8 +79,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -83,8 +92,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -94,8 +105,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -105,8 +118,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -116,8 +131,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -127,8 +144,10 @@ public class StartSceneButton : MonoBehaviour
         for (int i = 0; i < CharacterKind.Length; i++)
         {
             CharacterKind[i].SetActive(false);
+            IntroduceText[i].SetActive(false);
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
+        IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
         ChooseCharacterImage.SetActive(false);
     }
 }
