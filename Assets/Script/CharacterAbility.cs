@@ -93,19 +93,19 @@ public class CharacterAbility : MonoBehaviourPunCallbacks
             }
             if (PlayerPrefs.GetInt("Character") == 6)
             {
-                //拋物線
-                Attack = 230;
-                Blood = 130;
-                Speed = 230;
-                range = 200;
-            }
-            if (PlayerPrefs.GetInt("Character") == 7)
-            {
                 //散彈隨機
                 Attack = 170;
                 Blood = 220;
                 Speed = 220;
                 range = 270;
+            }
+            if (PlayerPrefs.GetInt("Character") == 7)
+            {
+                //狙擊
+                Attack = 300;
+                Blood = 70;
+                Speed = 230;
+                range = 300;
             }
         }
     }

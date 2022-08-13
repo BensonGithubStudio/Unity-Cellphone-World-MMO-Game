@@ -14109,8 +14109,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0.5}
+  m_Size: {x: 0.5, y: 0.5, z: 1.5}
+  m_Center: {x: 0, y: 0, z: 0.25}
 --- !u!114 &1926123350825304241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14163,8 +14163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 1926123350825304241}
-  LifeTime: 1
-  MoveSpeed: 7
+  LifeTime: 0.68
+  MoveSpeed: 13
   BulletStrong: 20
 --- !u!1 &1895495867692975517
 GameObject:
