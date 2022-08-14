@@ -36,7 +36,7 @@ public class CharacterView : MonoBehaviour
     {
         if (IsView)
         {
-            Gap = (MouseX - Camera.main.ScreenToViewportPoint(Input.mousePosition).x) * 500;
+            Gap = (MouseX - Camera.main.ScreenToViewportPoint(Input.mousePosition).x) * 1500;
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + Gap, transform.localEulerAngles.z);
 
             MouseX = Camera.main.ScreenToViewportPoint(Input.mousePosition).x;
