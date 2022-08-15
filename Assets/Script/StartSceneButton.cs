@@ -64,6 +64,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 200, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -78,6 +79,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 200, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -92,6 +94,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 200, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -106,6 +109,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 200, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -120,6 +124,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 200, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -134,6 +139,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 200, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -148,6 +154,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, -180, 0);
         ChooseCharacterImage.SetActive(false);
     }
 
@@ -162,6 +169,7 @@ public class StartSceneButton : MonoBehaviour
         }
         CharacterKind[PlayerPrefs.GetInt("Character")].SetActive(true);
         IntroduceText[PlayerPrefs.GetInt("Character")].SetActive(true);
+        CharacterKind[PlayerPrefs.GetInt("Character")].transform.localEulerAngles = new Vector3(0, 180, 0);
         ChooseCharacterImage.SetActive(false);
     }
 }
