@@ -2191,6 +2191,7 @@ MonoBehaviour:
   MyPlayer: {fileID: 0}
   ButtonAudioSource: {fileID: 170076736}
   ClickButtonSound: {fileID: 8300000, guid: 6bf57b1afa72d694d95ec8779efb0fd9, type: 3}
+  LeaveRoomButton: {fileID: 1282873971}
   SettingAllUI: {fileID: 826654568}
   QualitySettingUI: {fileID: 967482365}
   SoundAndMusicSettingUI: {fileID: 1455665701}

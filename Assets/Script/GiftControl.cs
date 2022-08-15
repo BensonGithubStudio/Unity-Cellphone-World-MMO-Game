@@ -20,17 +20,15 @@ public class GiftControl : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    /*void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player Body")
         {
             if (!collision.gameObject.GetComponent<PhotonView>().IsMine)
             {
-                if (pv.IsMine)
-                {
-                    PhotonNetwork.Destroy(Gift);
-                }
+                PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+                PhotonNetwork.Destroy(Gift);
             }
         }
-    }
+    }*/
 }

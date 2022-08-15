@@ -91,7 +91,6 @@ public class StartNetworkManager : MonoBehaviourPunCallbacks
 
     void GoInGame()
     {
-        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
         SceneManager.LoadScene("World Scene");
     }
 }

@@ -470,6 +470,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     NowHp -= other.gameObject.GetComponent<BulletControl>().BulletStrong;
                 }
             }
+
+            if(other.gameObject.tag == "Gift")
+            {
+                PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
+                CallRPCDestroyGift(other.gameObject.GetComponent<PhotonView>().ViewID);
+            }
         }
     }
 
@@ -530,6 +536,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         pv.RPC("RPCAddGift", RpcTarget.MasterClient, p);
     }
 
+    void CallRPCDestroyGift(int id)
+    {
+        pv.RPC("RPCDestroyGift", RpcTarget.MasterClient, id);
+    }
+
     [PunRPC]
     void RPCAddGift(Vector3 p)
     {
@@ -538,5 +549,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         PhotonNetwork.InstantiateRoomObject("Gift 3", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
         PhotonNetwork.InstantiateRoomObject("Gift 4", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
         PhotonNetwork.InstantiateRoomObject("Gift 5", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
+    }
+
+    [PunRPC]
+    void RPCDestroyGift(int id)
+    {
+        PhotonNetwork.Destroy(PhotonView.Find(id).gameObject);
     }
 }

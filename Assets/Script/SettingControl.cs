@@ -12,6 +12,8 @@ public class SettingControl : MonoBehaviour
     public AudioSource ButtonAudioSource;
     public AudioClip ClickButtonSound;
 
+    public Button LeaveRoomButton;
+
     public GameObject SettingAllUI;
     public GameObject QualitySettingUI;
     public GameObject SoundAndMusicSettingUI;
@@ -206,6 +208,7 @@ public class SettingControl : MonoBehaviour
     public void OnClickDeletePlayerLevelData()
     {
         ButtonAudioSource.PlayOneShot(ClickButtonSound);
+        LeaveRoomButton.interactable = false;
         PlayerPrefs.DeleteKey("Name");
         PlayerPrefs.DeleteKey("Level");
         PhotonNetwork.LeaveRoom();
@@ -214,17 +217,20 @@ public class SettingControl : MonoBehaviour
     public void OnClickDeleteAllData()
     {
         ButtonAudioSource.PlayOneShot(ClickButtonSound);
+        LeaveRoomButton.interactable = false;
         PlayerPrefs.DeleteAll();
         PhotonNetwork.LeaveRoom();
     }
 
     public void OnClickDeletePreferData()
     {
+        LeaveRoomButton.interactable = false;
         PhotonNetwork.LeaveRoom();
     }
 
     public void OnClickDeleteQualityData()
     {
+        LeaveRoomButton.interactable = false;
         PhotonNetwork.LeaveRoom();
     }
 
