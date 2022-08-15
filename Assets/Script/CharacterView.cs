@@ -7,6 +7,7 @@ public class CharacterView : MonoBehaviour
     public bool IsView;
     public float MouseX;
     public float Gap;
+    public GameObject ChooseImage;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +21,13 @@ public class CharacterView : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (Camera.main.ScreenToViewportPoint(Input.mousePosition).x > 0.3f && Camera.main.ScreenToViewportPoint(Input.mousePosition).x < 0.7f && Camera.main.ScreenToViewportPoint(Input.mousePosition).y > 0.2f && Camera.main.ScreenToViewportPoint(Input.mousePosition).y < 0.8f)
+            if (!ChooseImage.activeSelf)
             {
-                IsView = true;
-                MouseX = Camera.main.ScreenToViewportPoint(Input.mousePosition).x;
+                if (Camera.main.ScreenToViewportPoint(Input.mousePosition).x > 0.3f && Camera.main.ScreenToViewportPoint(Input.mousePosition).x < 0.7f && Camera.main.ScreenToViewportPoint(Input.mousePosition).y > 0.2f && Camera.main.ScreenToViewportPoint(Input.mousePosition).y < 0.8f)
+                {
+                    IsView = true;
+                    MouseX = Camera.main.ScreenToViewportPoint(Input.mousePosition).x;
+                }
             }
         }
         if (!Input.GetMouseButton(0))
