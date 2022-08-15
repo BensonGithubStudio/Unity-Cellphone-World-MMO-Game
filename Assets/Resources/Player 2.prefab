@@ -169,8 +169,10 @@ MonoBehaviour:
   ShootAim: {fileID: 0}
   LeaveButton: {fileID: 0}
   EnergyBar: {fileID: 0}
+  PlayerClone: Clone 2
   PlayerAnimator: {fileID: 8577164681402186616}
   CanMove: 0
+  ClickLeaveRoom: 0
   CanShoot: 0
   AutoShoot: 0
   DontAutoShoot: 0
@@ -179,6 +181,8 @@ MonoBehaviour:
   CanTreat: 0
   IsAlive: 0
   NowEnergy: 0
+  CanSee: 0
+  PlayerCloneClone: {fileID: 0}
   MoveSpeed: 20
   MaxSpeed: 4
   BulletKind: Bullet 2

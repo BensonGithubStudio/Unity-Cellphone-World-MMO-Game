@@ -1276,7 +1276,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 875763274178167236}
-  - component: {fileID: 8622473191090537643}
   - component: {fileID: 5085866397973238284}
   - component: {fileID: 4913661073801093639}
   - component: {fileID: 7018668907323303485}
@@ -1312,21 +1311,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8622473191090537643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 875763274178534884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b6e93a7d7ca23044857b3cd28c591bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsView: 0
-  MouseX: 0
-  Gap: 0
 --- !u!114 &5085866397973238284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1425,7 @@ MonoBehaviour:
   ShootAim: {fileID: 0}
   LeaveButton: {fileID: 0}
   EnergyBar: {fileID: 0}
+  PlayerClone: Clone 8
   PlayerAnimator: {fileID: 95563511442425210}
   CanMove: 0
   ClickLeaveRoom: 0
@@ -1452,6 +1437,8 @@ MonoBehaviour:
   CanTreat: 0
   IsAlive: 0
   NowEnergy: 0
+  CanSee: 0
+  PlayerCloneClone: {fileID: 0}
   MoveSpeed: 20
   MaxSpeed: 7.667
   BulletKind: Bullet 8

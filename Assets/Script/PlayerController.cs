@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public GameObject ShootAim;
     public GameObject LeaveButton;
     public GameObject EnergyBar;
+    public string PlayerClone;
 
     [Header("動畫管理")]
     public Animator PlayerAnimator;
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public bool CanTreat;
     public bool IsAlive;
     public float NowEnergy;
+    public bool CanSee;
+    public GameObject PlayerCloneClone;
 
     [Header("參數設定")]
     public float MoveSpeed;
@@ -70,6 +73,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
         PlayerAnimator.SetBool("IsDie", false);
         PlayerAnimator.enabled = false;
         ShootWaitTime = 0;
+        CanSee = true;
+
+        PlayerCloneClone = PhotonNetwork.Instantiate(PlayerClone, Player.transform.position, Player.transform.rotation);
+        PlayerCloneClone.SetActive(false);
     }
 
     // Update is called once per frame
@@ -77,6 +84,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         if (pv.IsMine)
         {
+            if (PlayerCloneClone.activeSelf)
+            {
+                PlayerCloneClone.transform.position = Player.transform.position;
+                PlayerCloneClone.transform.rotation = Player.transform.rotation;
+            }
+
             CameraCheck();
             GameUICheck();
             JoystickCheck();
@@ -84,6 +97,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
             ShootAimCheck();
             EnergyBarCheck();
             LeaveButtonCheck();
+            ClonePlayerCheck();
 
             if (IsAlive)
             {
@@ -259,6 +273,18 @@ public class PlayerController : MonoBehaviourPunCallbacks
         if (IsAlive)
         {
             LeaveButton.SetActive(false);
+        }
+    }
+
+    void ClonePlayerCheck()
+    {
+        GameObject[] clones = GameObject.FindGameObjectsWithTag("Clone Player");
+        foreach (GameObject clone in clones)
+        {
+            if (!clone.GetComponent<PhotonView>().IsMine)
+            {
+                Destroy(clone);
+            }
         }
     }
 
@@ -468,6 +494,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
                     CancelInvoke("Treat");
                     CanTreat = true;
                     NowHp -= other.gameObject.GetComponent<BulletControl>().BulletStrong;
+                    if (CanSee == false)
+                    {
+                        CallRPCInvisableObject(this.gameObject.GetComponent<PhotonView>().ViewID, true);
+                        Invoke("ReInvisable", 0.35f);
+                    }
                 }
             }
 
@@ -475,6 +506,32 @@ public class PlayerController : MonoBehaviourPunCallbacks
             {
                 PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level") + 1);
                 CallRPCDestroyGift(other.gameObject.GetComponent<PhotonView>().ViewID);
+            }
+
+            if(other.gameObject.tag == "Grass")
+            {
+                CallRPCInvisableObject(this.gameObject.GetComponent<PhotonView>().ViewID, false);
+                PlayerCloneClone.SetActive(true);
+                CanSee = false;
+            }
+        }
+    }
+
+    void ReInvisable()
+    {
+        CallRPCInvisableObject(this.gameObject.GetComponent<PhotonView>().ViewID, false);
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (pv.IsMine)
+        {
+            if(other.gameObject.tag == "Grass")
+            {
+                CancelInvoke("ReInvisable");
+                CallRPCInvisableObject(this.gameObject.GetComponent<PhotonView>().ViewID, true);
+                PlayerCloneClone.SetActive(false);
+                CanSee = true;
             }
         }
     }
@@ -541,6 +598,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
         pv.RPC("RPCDestroyGift", RpcTarget.MasterClient, id);
     }
 
+    void CallRPCInvisableObject(int id,bool status)
+    {
+        pv.RPC("RPCInvisableObject", RpcTarget.All, id, status);
+    }
+
     [PunRPC]
     void RPCAddGift(Vector3 p)
     {
@@ -555,5 +617,28 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void RPCDestroyGift(int id)
     {
         PhotonNetwork.Destroy(PhotonView.Find(id).gameObject);
+    }
+
+    [PunRPC]
+    void RPCInvisableObject(int id, bool status)
+    {
+        if (PhotonView.Find(id).gameObject.GetComponent<MeshRenderer>() != null)
+        {
+            PhotonView.Find(id).gameObject.GetComponent<MeshRenderer>().enabled = status;
+        }
+        else
+        {
+            MeshRenderer[] Mrenders = PhotonView.Find(id).gameObject.GetComponentsInChildren<MeshRenderer>();
+            SkinnedMeshRenderer[] renders = PhotonView.Find(id).gameObject.GetComponentsInChildren<SkinnedMeshRenderer>();
+            print(renders.Length);
+            foreach (SkinnedMeshRenderer render in renders)
+            {
+                render.enabled = status;
+            }
+            foreach (MeshRenderer Mrender in Mrenders)
+            {
+                Mrender.enabled = status;
+            }
+        }
     }
 }
