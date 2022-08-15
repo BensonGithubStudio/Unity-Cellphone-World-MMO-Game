@@ -52,7 +52,10 @@ public class SettingControl : MonoBehaviour
                 MyPlayer = player;
             }
         }
-        MyPlayer.GetComponent<AudioSource>().volume = SoundSlider.value;
+        if (MyPlayer != null)
+        {
+            MyPlayer.GetComponent<AudioSource>().volume = SoundSlider.value;
+        }
     }
 
     public void OnClickLeaveGame()

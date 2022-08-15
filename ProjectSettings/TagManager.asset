@@ -14,6 +14,7 @@ TagManager:
   - Leave Button
   - Player Body
   - Energy Bar
+  - Gift
   layers:
   - Default
   - TransparentFX

@@ -96,7 +96,10 @@ public class WorldNetworkManager : MonoBehaviourPunCallbacks
             WifiImage.SetActive(false);
         }
 
-        EnemyCountText.text = "剩餘敵人：" + (PhotonNetwork.CurrentRoom.PlayerCount - 1);
+        if (EnemyCountText != null && PhotonNetwork.CurrentRoom != null)
+        {
+            EnemyCountText.text = "剩餘敵人：" + (PhotonNetwork.CurrentRoom.PlayerCount - 1);
+        }
     }
 
     public override void OnLeftRoom()

@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     [Header("玩家狀態")]
     public bool CanMove;
+    public bool ClickLeaveRoom;
     public bool CanShoot;
     public bool AutoShoot;
     public bool DontAutoShoot;
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     void Start()
     {
         CanShoot = false;
+        ClickLeaveRoom = false;
         AutoShoot = false;
         DontAutoShoot = true;
         NowHp = MaxHp;
@@ -75,15 +77,16 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         if (pv.IsMine)
         {
+            CameraCheck();
+            GameUICheck();
+            JoystickCheck();
+            BloodBarCheck();
+            ShootAimCheck();
+            EnergyBarCheck();
+            LeaveButtonCheck();
+
             if (IsAlive)
             {
-                CameraCheck();
-                GameUICheck();
-                JoystickCheck();
-                BloodBarCheck();
-                ShootAimCheck();
-                EnergyBarCheck();
-                LeaveButtonCheck();
                 PlayerRotate();
                 ShootRotate();
                 ShootControl();
@@ -91,6 +94,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
                 ShootWaitTime += Time.deltaTime;
             }
+
+
             BloodBarControl();
         }
     }
@@ -118,7 +123,10 @@ public class PlayerController : MonoBehaviourPunCallbacks
             }
         }
 
-        Cam.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 10, Player.transform.position.z);
+        if (IsAlive)
+        {
+            Cam.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 10, Player.transform.position.z);
+        }
     }
 
     void GameUICheck()
@@ -241,15 +249,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
             if (button.GetComponent<PhotonView>().IsMine)
             {
                 LeaveButton = button;
-                LeaveButton.GetComponent<Button>().onClick.AddListener(delegate (){ OnClickLeaveGame(); });
+                LeaveButton.GetComponent<Button>().onClick.AddListener(delegate () { OnClickLeaveGame(); });
             }
             else
             {
                 Destroy(button);
             }
         }
-
-        LeaveButton.SetActive(false);
+        if (IsAlive)
+        {
+            LeaveButton.SetActive(false);
+        }
     }
 
     void PlayerRotate()
@@ -416,6 +426,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if (IsAlive)
             {
+                CallRPCAddGift(Player.transform.position);
+
                 LeaveButton.SetActive(true);
                 PlayerAnimator.enabled = true;
                 PlayerAnimator.SetBool("IsDie", true);
@@ -506,6 +518,25 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveGame()
     {
-        PhotonNetwork.LeaveRoom();
+        if (!ClickLeaveRoom)
+        {
+            ClickLeaveRoom = true;
+            PhotonNetwork.LeaveRoom();
+        }
+    }
+
+    void CallRPCAddGift(Vector3 p)
+    {
+        pv.RPC("RPCAddGift", RpcTarget.MasterClient, p);
+    }
+
+    [PunRPC]
+    void RPCAddGift(Vector3 p)
+    {
+        PhotonNetwork.InstantiateRoomObject("Gift 1", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
+        PhotonNetwork.InstantiateRoomObject("Gift 2", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
+        PhotonNetwork.InstantiateRoomObject("Gift 3", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
+        PhotonNetwork.InstantiateRoomObject("Gift 4", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
+        PhotonNetwork.InstantiateRoomObject("Gift 5", new Vector3(p.x + Random.Range(-2f, 2f), p.y + 2, p.z + Random.Range(-2f, 2f)), Quaternion.Euler(45, 0, 45), 0, null);
     }
 }

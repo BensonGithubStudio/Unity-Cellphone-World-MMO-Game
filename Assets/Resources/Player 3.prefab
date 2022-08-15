@@ -171,6 +171,7 @@ MonoBehaviour:
   EnergyBar: {fileID: 0}
   PlayerAnimator: {fileID: 6959454240705495}
   CanMove: 0
+  ClickLeaveRoom: 0
   CanShoot: 0
   AutoShoot: 0
   DontAutoShoot: 0

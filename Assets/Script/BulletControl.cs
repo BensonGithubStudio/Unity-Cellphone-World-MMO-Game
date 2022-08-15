@@ -33,7 +33,6 @@ public class BulletControl : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        print("111");
         if (pv.IsMine)
         {
             if (collision.gameObject.tag == "Untagged")
