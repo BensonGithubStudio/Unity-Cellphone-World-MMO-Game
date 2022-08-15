@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 6318751}
   - component: {fileID: 6318750}
   - component: {fileID: 6318749}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - component: {fileID: 30544334}
   - component: {fileID: 30544333}
   - component: {fileID: 30544332}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 41001705}
   - component: {fileID: 41001704}
   - component: {fileID: 41001703}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 48555680}
   - component: {fileID: 48555679}
   - component: {fileID: 48555678}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 95480388}
   - component: {fileID: 95480389}
   - component: {fileID: 95480390}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: World Scene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -923,7 +923,7 @@ GameObject:
   - component: {fileID: 106179079}
   - component: {fileID: 106179078}
   - component: {fileID: 106179077}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,7 +1011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 120723450}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Love Taiwan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1363,7 +1363,7 @@ GameObject:
   - component: {fileID: 178566113}
   - component: {fileID: 178566112}
   - component: {fileID: 178566111}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 187642082}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Junior High School
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 194807120}
   - component: {fileID: 194807119}
   - component: {fileID: 194807118}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1573,7 +1573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209731184}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: School
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1609,7 +1609,7 @@ GameObject:
   - component: {fileID: 213841280}
   - component: {fileID: 213841279}
   - component: {fileID: 213841278}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,13 +1933,94 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244738960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 0, z: -4.15}
+  m_LocalPosition: {x: -7, y: -0.1, z: -4.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 905966452}
   m_Father: {fileID: 1295386717}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &256234032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256234033}
+  - component: {fileID: 256234035}
+  - component: {fileID: 256234034}
+  m_Layer: 0
+  m_Name: 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &256234033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256234032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22, y: -0.1, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2139659119}
+  m_Father: {fileID: 1295386717}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!154 &256234034
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256234032}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: de9e06bf288de854ca8606879b2a8eca, type: 2}
+  m_EnableTreeColliders: 0
+--- !u!218 &256234035
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256234032}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_TerrainData: {fileID: 15600000, guid: de9e06bf288de854ca8606879b2a8eca, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialType: 0
+  m_LegacySpecular:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_LegacyShininess: 0.078125
+  m_MaterialTemplate: {fileID: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 0
+  m_ScaleInLightmap: 0.1024
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
 --- !u!1 &266388469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +2033,7 @@ GameObject:
   - component: {fileID: 266388473}
   - component: {fileID: 266388472}
   - component: {fileID: 266388471}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2040,7 +2121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 277557696}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Love Taiwan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2477,7 +2558,7 @@ GameObject:
   - component: {fileID: 321146478}
   - component: {fileID: 321146477}
   - component: {fileID: 321146476}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2568,7 +2649,7 @@ GameObject:
   - component: {fileID: 332732147}
   - component: {fileID: 332732146}
   - component: {fileID: 332732145}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2656,7 +2737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 336154286}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Connumity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2690,7 +2771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 383666017}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2797,7 +2878,7 @@ GameObject:
   - component: {fileID: 405194799}
   - component: {fileID: 405194798}
   - component: {fileID: 405194797}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2888,7 +2969,7 @@ GameObject:
   - component: {fileID: 423812862}
   - component: {fileID: 423812861}
   - component: {fileID: 423812860}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: School 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3056,7 +3137,7 @@ GameObject:
   - component: {fileID: 425162243}
   - component: {fileID: 425162242}
   - component: {fileID: 425162241}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3501,7 +3582,7 @@ GameObject:
   - component: {fileID: 452658843}
   - component: {fileID: 452658842}
   - component: {fileID: 452658841}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3592,7 +3673,7 @@ GameObject:
   - component: {fileID: 455047694}
   - component: {fileID: 455047693}
   - component: {fileID: 455047692}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3755,7 +3836,7 @@ GameObject:
   - component: {fileID: 464406846}
   - component: {fileID: 464406845}
   - component: {fileID: 464406844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3846,7 +3927,7 @@ GameObject:
   - component: {fileID: 472755881}
   - component: {fileID: 472755880}
   - component: {fileID: 472755879}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3937,7 +4018,7 @@ GameObject:
   - component: {fileID: 498866102}
   - component: {fileID: 498866101}
   - component: {fileID: 498866100}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4025,7 +4106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536953056}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Senior High School
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4058,7 +4139,7 @@ GameObject:
   - component: {fileID: 539662548}
   - component: {fileID: 539662547}
   - component: {fileID: 539662546}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4183,6 +4264,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 86f105d9ae9ae1f4e9e6e171226cac7c, type: 3}
       propertyPath: m_Name
       value: fence_single
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 86f105d9ae9ae1f4e9e6e171226cac7c, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 86f105d9ae9ae1f4e9e6e171226cac7c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4477,7 +4562,7 @@ GameObject:
   - component: {fileID: 639571599}
   - component: {fileID: 639571598}
   - component: {fileID: 639571597}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4568,7 +4653,7 @@ GameObject:
   - component: {fileID: 654854779}
   - component: {fileID: 654854778}
   - component: {fileID: 654854777}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4656,7 +4741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 656861881}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Community
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4844,7 +4929,7 @@ GameObject:
   - component: {fileID: 699434563}
   - component: {fileID: 699434562}
   - component: {fileID: 699434561}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5064,7 +5149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 743668624}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Two
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5450,7 +5535,7 @@ GameObject:
   - component: {fileID: 795278846}
   - component: {fileID: 795278845}
   - component: {fileID: 795278844}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5578,7 +5663,7 @@ GameObject:
   - component: {fileID: 850699910}
   - component: {fileID: 850699909}
   - component: {fileID: 850699908}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5823,7 +5908,7 @@ GameObject:
   - component: {fileID: 896816884}
   - component: {fileID: 896816883}
   - component: {fileID: 896816882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5914,7 +5999,7 @@ GameObject:
   - component: {fileID: 897917501}
   - component: {fileID: 897917500}
   - component: {fileID: 897917499}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6003,7 +6088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 905966452}
   - component: {fileID: 905966453}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Trigger
   m_TagString: Grass
   m_Icon: {fileID: 0}
@@ -6035,8 +6120,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3, y: 3, z: 4}
-  m_Center: {x: 0.4, y: 0, z: 1.43}
+  m_Size: {x: 1, y: 3, z: 4}
+  m_Center: {x: 0.5, y: 0, z: 1.5}
 --- !u!1 &911245452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6082,7 +6167,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912341684}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Fence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6116,7 +6201,7 @@ GameObject:
   - component: {fileID: 947825999}
   - component: {fileID: 947825998}
   - component: {fileID: 947825997}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6330,7 +6415,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 961196815}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: One
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6411,7 +6496,7 @@ GameObject:
   - component: {fileID: 972008188}
   - component: {fileID: 972008187}
   - component: {fileID: 972008186}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6502,7 +6587,7 @@ GameObject:
   - component: {fileID: 1004845847}
   - component: {fileID: 1004845846}
   - component: {fileID: 1004845845}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6741,7 +6826,7 @@ GameObject:
   - component: {fileID: 1042340001}
   - component: {fileID: 1042340000}
   - component: {fileID: 1042339999}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6832,7 +6917,7 @@ GameObject:
   - component: {fileID: 1092068339}
   - component: {fileID: 1092068338}
   - component: {fileID: 1092068337}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6920,7 +7005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1102097321}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Edge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7098,7 +7183,7 @@ GameObject:
   - component: {fileID: 1107650295}
   - component: {fileID: 1107650294}
   - component: {fileID: 1107650293}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7266,7 +7351,7 @@ GameObject:
   - component: {fileID: 1121941271}
   - component: {fileID: 1121941270}
   - component: {fileID: 1121941269}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7465,7 +7550,7 @@ GameObject:
   - component: {fileID: 1159541756}
   - component: {fileID: 1159541755}
   - component: {fileID: 1159541754}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7556,7 +7641,7 @@ GameObject:
   - component: {fileID: 1174353083}
   - component: {fileID: 1174353082}
   - component: {fileID: 1174353081}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7647,7 +7732,7 @@ GameObject:
   - component: {fileID: 1175986205}
   - component: {fileID: 1175986204}
   - component: {fileID: 1175986203}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7864,7 +7949,7 @@ GameObject:
   - component: {fileID: 1216355209}
   - component: {fileID: 1216355208}
   - component: {fileID: 1216355207}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8029,7 +8114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1232032675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: New Greece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8066,7 +8151,7 @@ GameObject:
   - component: {fileID: 1247056402}
   - component: {fileID: 1247056401}
   - component: {fileID: 1247056400}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8154,7 +8239,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1265024164}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Elementary School
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8218,7 +8303,7 @@ GameObject:
   - component: {fileID: 1273410401}
   - component: {fileID: 1273410400}
   - component: {fileID: 1273410399}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8607,6 +8692,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 244738963}
+  - {fileID: 1717585837}
+  - {fileID: 256234033}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8736,6 +8823,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296395376}
   m_CullTransparentMesh: 0
+--- !u!1 &1340971442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1340971443}
+  - component: {fileID: 1340971444}
+  m_Layer: 13
+  m_Name: Trigger
+  m_TagString: Grass
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1340971443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340971442}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1717585837}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1340971444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340971442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 3, z: 1}
+  m_Center: {x: 5, y: 0, z: 0.5}
 --- !u!1 &1374043136
 GameObject:
   m_ObjectHideFlags: 0
@@ -8745,7 +8876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374043137}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8871,7 +9002,7 @@ GameObject:
   - component: {fileID: 1398871461}
   - component: {fileID: 1398871460}
   - component: {fileID: 1398871459}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9141,7 +9272,7 @@ GameObject:
   - component: {fileID: 1425012997}
   - component: {fileID: 1425012996}
   - component: {fileID: 1425012995}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9232,7 +9363,7 @@ GameObject:
   - component: {fileID: 1430874077}
   - component: {fileID: 1430874076}
   - component: {fileID: 1430874075}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9323,7 +9454,7 @@ GameObject:
   - component: {fileID: 1441495258}
   - component: {fileID: 1441495257}
   - component: {fileID: 1441495256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9414,7 +9545,7 @@ GameObject:
   - component: {fileID: 1452721260}
   - component: {fileID: 1452721259}
   - component: {fileID: 1452721258}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9506,7 +9637,7 @@ GameObject:
   - component: {fileID: 1454044215}
   - component: {fileID: 1454044214}
   - component: {fileID: 1454044213}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9636,7 +9767,7 @@ GameObject:
   - component: {fileID: 1481478869}
   - component: {fileID: 1481478868}
   - component: {fileID: 1481478867}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9986,7 +10117,7 @@ GameObject:
   - component: {fileID: 1523245565}
   - component: {fileID: 1523245564}
   - component: {fileID: 1523245563}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10149,7 +10280,7 @@ GameObject:
   - component: {fileID: 1568749885}
   - component: {fileID: 1568749884}
   - component: {fileID: 1568749883}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: School 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10369,7 +10500,7 @@ GameObject:
   - component: {fileID: 1578844875}
   - component: {fileID: 1578844874}
   - component: {fileID: 1578844873}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10526,7 +10657,7 @@ GameObject:
   - component: {fileID: 1606430360}
   - component: {fileID: 1606430359}
   - component: {fileID: 1606430358}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10773,7 +10904,7 @@ GameObject:
   - component: {fileID: 1621001958}
   - component: {fileID: 1621001957}
   - component: {fileID: 1621001956}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10936,7 +11067,7 @@ GameObject:
   - component: {fileID: 1645088702}
   - component: {fileID: 1645088701}
   - component: {fileID: 1645088700}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11027,7 +11158,7 @@ GameObject:
   - component: {fileID: 1654792916}
   - component: {fileID: 1654792915}
   - component: {fileID: 1654792914}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11118,7 +11249,7 @@ GameObject:
   - component: {fileID: 1657278369}
   - component: {fileID: 1657278368}
   - component: {fileID: 1657278367}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11463,7 +11594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1667826547}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Community
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11525,7 +11656,7 @@ GameObject:
   - component: {fileID: 1669691173}
   - component: {fileID: 1669691172}
   - component: {fileID: 1669691171}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12087,6 +12218,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715675505}
   m_CullTransparentMesh: 0
+--- !u!1 &1717585836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717585837}
+  - component: {fileID: 1717585839}
+  - component: {fileID: 1717585838}
+  m_Layer: 0
+  m_Name: 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1717585837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717585836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.5, y: -0.1, z: -7.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1340971443}
+  m_Father: {fileID: 1295386717}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!154 &1717585838
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717585836}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: f2983a0c914525b4fa7c3a9b45c5aa95, type: 2}
+  m_EnableTreeColliders: 0
+--- !u!218 &1717585839
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717585836}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_TerrainData: {fileID: 15600000, guid: f2983a0c914525b4fa7c3a9b45c5aa95, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_ReflectionProbeUsage: 1
+  m_MaterialType: 0
+  m_LegacySpecular:
+    serializedVersion: 2
+    rgba: 4286545791
+  m_LegacyShininess: 0.078125
+  m_MaterialTemplate: {fileID: 0}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 0
+  m_ScaleInLightmap: 0.1024
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_AllowAutoConnect: 1
 --- !u!1 &1738098563
 GameObject:
   m_ObjectHideFlags: 0
@@ -12132,7 +12344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1760753989}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12544,7 +12756,7 @@ GameObject:
   - component: {fileID: 1808672831}
   - component: {fileID: 1808672830}
   - component: {fileID: 1808672829}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12635,7 +12847,7 @@ GameObject:
   - component: {fileID: 1844905336}
   - component: {fileID: 1844905335}
   - component: {fileID: 1844905334}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12745,7 +12957,7 @@ GameObject:
   - component: {fileID: 1853617194}
   - component: {fileID: 1853617193}
   - component: {fileID: 1853617192}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12910,7 +13122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860437753}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Community
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13098,7 +13310,7 @@ GameObject:
   - component: {fileID: 1882080108}
   - component: {fileID: 1882080107}
   - component: {fileID: 1882080106}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13189,7 +13401,7 @@ GameObject:
   - component: {fileID: 1898633709}
   - component: {fileID: 1898633708}
   - component: {fileID: 1898633707}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13280,7 +13492,7 @@ GameObject:
   - component: {fileID: 1900666378}
   - component: {fileID: 1900666377}
   - component: {fileID: 1900666376}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13525,7 +13737,7 @@ GameObject:
   - component: {fileID: 1909588258}
   - component: {fileID: 1909588257}
   - component: {fileID: 1909588256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13616,7 +13828,7 @@ GameObject:
   - component: {fileID: 1925850337}
   - component: {fileID: 1925850336}
   - component: {fileID: 1925850335}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13704,7 +13916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929931658}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13739,7 +13951,7 @@ GameObject:
   - component: {fileID: 1939595863}
   - component: {fileID: 1939595862}
   - component: {fileID: 1939595861}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Car Road 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13907,7 +14119,7 @@ GameObject:
   - component: {fileID: 1967714976}
   - component: {fileID: 1967714975}
   - component: {fileID: 1967714974}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14040,7 +14252,7 @@ GameObject:
   - component: {fileID: 1997481828}
   - component: {fileID: 1997481827}
   - component: {fileID: 1997481826}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14131,7 +14343,7 @@ GameObject:
   - component: {fileID: 2023634497}
   - component: {fileID: 2023634496}
   - component: {fileID: 2023634495}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14222,7 +14434,7 @@ GameObject:
   - component: {fileID: 2056775180}
   - component: {fileID: 2056775179}
   - component: {fileID: 2056775178}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14313,7 +14525,7 @@ GameObject:
   - component: {fileID: 2057904340}
   - component: {fileID: 2057904339}
   - component: {fileID: 2057904338}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14689,7 +14901,7 @@ GameObject:
   - component: {fileID: 2081880856}
   - component: {fileID: 2081880855}
   - component: {fileID: 2081880854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Ground 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14780,7 +14992,7 @@ GameObject:
   - component: {fileID: 2091652674}
   - component: {fileID: 2091652673}
   - component: {fileID: 2091652672}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14944,7 +15156,7 @@ GameObject:
   - component: {fileID: 2104716874}
   - component: {fileID: 2104716873}
   - component: {fileID: 2104716872}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: House 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15023,6 +15235,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104716870}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2139659118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2139659119}
+  - component: {fileID: 2139659120}
+  m_Layer: 13
+  m_Name: Trigger
+  m_TagString: Grass
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2139659119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139659118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 256234033}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2139659120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139659118}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 3, z: 5}
+  m_Center: {x: 2.5, y: 0, z: 2.5}
 --- !u!1 &2140218669
 GameObject:
   m_ObjectHideFlags: 0

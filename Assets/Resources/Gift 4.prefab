@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 114967415983977658}
   - component: {fileID: 65346998039847498}
   - component: {fileID: 114537367691621216}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Gift 4
   m_TagString: Gift
   m_Icon: {fileID: 0}
