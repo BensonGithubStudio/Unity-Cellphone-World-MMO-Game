@@ -17,6 +17,7 @@ TagManager:
   - Gift
   - Grass
   - Clone Player
+  - Give Gift
   layers:
   - Default
   - TransparentFX
